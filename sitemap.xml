@@ -1,33 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://utoprey.github.io/</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://utoprey.github.io/#about-me</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://utoprey.github.io/#research</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://utoprey.github.io/#resume</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://utoprey.github.io/#contact</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>rarely</changefreq>
-        <priority>0.6</priority>
-    </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://utoprey.github.io/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://utoprey.github.io/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://utoprey.github.io/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://utoprey.github.io/" />
+  </url>
+  <url>
+    <loc>https://utoprey.github.io/ru/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://utoprey.github.io/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://utoprey.github.io/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://utoprey.github.io/" />
+  </url>
 </urlset>
