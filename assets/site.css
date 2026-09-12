@@ -606,7 +606,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    padding: 2rem 2rem 0;
 }
 
 .project-logo {
@@ -645,6 +645,24 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+}
+
+.publications-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-gray);
+}
+
+.publication-group-title {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    margin: 2.5rem 0 1rem;
+}
+
+.profile-updated {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
 }
 
 .poster-card {
@@ -839,7 +857,7 @@ body {
 }
 
 .project-content {
-    padding: 2rem;
+    padding: 1rem 2rem 2rem;
 }
 
 .project-description {
@@ -1098,4 +1116,3 @@ a:focus-visible { outline: 3px solid #785d76; outline-offset: 4px; }
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation: none !important; transition: none !important; }
 }
-

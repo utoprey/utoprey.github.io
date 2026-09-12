@@ -1,0 +1,483 @@
+{
+  "updated": "2026-09-12",
+  "timeline": [
+    {
+      "id": "spatial",
+      "title": {
+        "en": "Machine Learning Engineer",
+        "ru": "Инженер машинного обучения"
+      },
+      "company": {
+        "en": "Spatial Intelligence Lab, Applied AI Institute",
+        "ru": "Spatial Intelligence Lab, Институт прикладного ИИ"
+      },
+      "period": {
+        "en": "October 2025 – present",
+        "ru": "Октябрь 2025 — настоящее время"
+      },
+      "description": {
+        "en": "Developing and benchmarking LLM and vision-language systems for 3D scene understanding and language-guided object localization. Working with scene graphs, geometry, tool use, and evaluation of spatial reasoning in a joint project with Huawei.",
+        "ru": "Разрабатываю и тестирую системы на основе LLM и визуально-языковых моделей для понимания 3D-сцен и поиска объектов по текстовым запросам. Работаю с графами сцен, геометрией, вызовом инструментов и оценкой пространственного рассуждения в совместном проекте с Huawei."
+      },
+      "kind": "work"
+    },
+    {
+      "id": "phd",
+      "title": {
+        "en": "PhD student",
+        "ru": "Аспирантура"
+      },
+      "company": {
+        "en": "Skolkovo Institute of Science and Technology (Skoltech)",
+        "ru": "Сколковский институт науки и технологий (Сколтех)"
+      },
+      "period": {
+        "en": "2024 – present",
+        "ru": "2024 — настоящее время"
+      },
+      "description": {
+        "en": "Research on multimodal neural data and real-time prediction of localized brain activity. Developed tokenization and representation-learning methods for EEG and fMRI, including masked pretraining, Transformers, and discrete representations.",
+        "ru": "Исследую мультимодальные нейроданные и предсказание локализованной активности мозга в реальном времени. Разрабатывала токенизацию и методы обучения представлений ЭЭГ и фМРТ, включая предобучение с маскированием, трансформеры и дискретные представления."
+      },
+      "kind": "education"
+    },
+    {
+      "id": "neuroimaging",
+      "title": {
+        "en": "Research Engineer, Medical AI",
+        "ru": "Инженер-исследователь, медицинский ИИ"
+      },
+      "company": {
+        "en": "Skoltech · Neuroimaging and Cognitive Neuroscience Lab",
+        "ru": "Сколтех · Лаборатория нейровизуализации и когнитивной нейронауки"
+      },
+      "period": {
+        "en": "November 2024 – September 2025",
+        "ru": "Ноябрь 2024 — сентябрь 2025"
+      },
+      "description": {
+        "en": "Developed pyOpenNFT, an open-source Python framework for real-time fMRI and EEG-fMRI neurofeedback. Implemented parallel signal processing with shared memory and a FastAPI prediction service for integrating machine-learning models. First author of the MICCAI 2025 framework paper.",
+        "ru": "Разрабатывала pyOpenNFT — открытый Python-фреймворк для нейрообратной связи по фМРТ и ЭЭГ-фМРТ в реальном времени. Реализовала параллельную обработку сигналов с общей памятью и FastAPI-сервис для подключения моделей машинного обучения. Первый автор статьи о фреймворке на MICCAI 2025."
+      },
+      "kind": "work"
+    },
+    {
+      "id": "sharjah",
+      "title": {
+        "en": "Machine Learning Engineer · part-time",
+        "ru": "Инженер машинного обучения · частичная занятость"
+      },
+      "company": {
+        "en": "BIMAI-Lab, University of Sharjah",
+        "ru": "BIMAI-Lab, Университет Шарджи"
+      },
+      "period": {
+        "en": "July 2024 – August 2025",
+        "ru": "Июль 2024 — август 2025"
+      },
+      "description": {
+        "en": "Led computational analysis of transcriptomic and proteomic data in international studies of human brain organoids under hypoxia. Developed statistical and machine-learning workflows, interpreted results with the experimental team, and contributed to papers in Fluids and Barriers of the CNS and iScience.",
+        "ru": "Вела вычислительный анализ транскриптомных и протеомных данных в международных исследованиях органоидов мозга человека при гипоксии. Разрабатывала статистические и ML-пайплайны, обсуждала интерпретацию с экспериментальной командой и участвовала в подготовке статей в Fluids and Barriers of the CNS и iScience."
+      },
+      "kind": "work"
+    },
+    {
+      "id": "medical",
+      "title": {
+        "en": "ML Engineer / Research Engineer",
+        "ru": "ML-инженер / инженер-исследователь"
+      },
+      "company": {
+        "en": "Skoltech · Medical AI / BIMAI-Lab",
+        "ru": "Сколтех · Medical AI / BIMAI-Lab"
+      },
+      "period": {
+        "en": "January 2023 – December 2024",
+        "ru": "Январь 2023 — декабрь 2024"
+      },
+      "description": {
+        "en": "Developed generative and interpretable models for multimodal neuroimaging and biomedical data, including Rest2Task, EEG-to-ECoG modeling, schizophrenia classification, and kidney-cancer metastasis prediction. Worked with data fusion, feature selection, graph representations, and validation on small medical datasets.",
+        "ru": "Разрабатывала генеративные и интерпретируемые модели для мультимодальной нейровизуализации и биомедицинских данных: Rest2Task, преобразование ЭЭГ в ЭКоГ, классификация шизофрении и прогнозирование метастазирования рака почки. Работала с объединением модальностей, отбором признаков, графовыми представлениями и валидацией на малых медицинских выборках."
+      },
+      "kind": "work"
+    },
+    {
+      "id": "msc",
+      "title": {
+        "en": "Master of Science",
+        "ru": "Магистратура"
+      },
+      "company": {
+        "en": "Skoltech",
+        "ru": "Сколтех"
+      },
+      "period": {
+        "en": "2022 – 2024",
+        "ru": "2022 — 2024"
+      },
+      "description": {
+        "en": "Research focus: medical AI and multimodal neuroimaging. Thesis on interpretable machine-learning models and data fusion for the analysis of neuroimaging and biomedical data in schizophrenia.",
+        "ru": "Исследовательская специализация: медицинский ИИ и мультимодальная нейровизуализация. Диссертация об интерпретируемых моделях машинного обучения и объединении нейровизуализационных и биомедицинских данных при изучении шизофрении."
+      },
+      "kind": "education"
+    },
+    {
+      "id": "bsc",
+      "title": {
+        "en": "Bachelor’s degree in Biomedical Engineering",
+        "ru": "Бакалавриат: биотехнические системы и технологии"
+      },
+      "company": {
+        "en": "Moscow Aviation Institute",
+        "ru": "Московский авиационный институт"
+      },
+      "period": {
+        "en": "2018 – 2022",
+        "ru": "2018 — 2022"
+      },
+      "description": {
+        "en": "Engineering foundations for biomedical technology, physiological measurements, and medical systems.",
+        "ru": "Инженерная подготовка в области биомедицинских технологий, физиологических измерений и медицинских систем."
+      },
+      "kind": "education"
+    }
+  ],
+  "projects": [
+    {
+      "id": "spatial",
+      "title": {
+        "en": "3D Spatial Understanding",
+        "ru": "Понимание 3D-сцен"
+      },
+      "period": {
+        "en": "Embodied AI · Spatial Intelligence",
+        "ru": "Embodied AI · Пространственный интеллект"
+      },
+      "description": {
+        "en": "Developing and benchmarking LLM and vision-language systems for 3D scene understanding and language-guided object localization. Working with scene graphs, geometry, tool use, and evaluation of spatial reasoning in a joint project with Huawei.",
+        "ru": "Разрабатываю и тестирую системы на основе LLM и визуально-языковых моделей для понимания 3D-сцен и поиска объектов по текстовым запросам. Работаю с графами сцен, геометрией, вызовом инструментов и оценкой пространственного рассуждения в совместном проекте с Huawei."
+      },
+      "tags": [
+        "Vision-Language Models",
+        "3D Grounding",
+        "Scene Graphs"
+      ],
+      "url": "/experience/EkaterinaAntipushinaCV.pdf",
+      "link": {
+        "en": "Project details in my CV",
+        "ru": "Описание проекта в CV"
+      }
+    },
+    {
+      "id": "foundation",
+      "title": {
+        "en": "Neural Representation Learning",
+        "ru": "Обучение представлений нейроданных"
+      },
+      "period": {
+        "en": "NeuroAI · EEG & fMRI",
+        "ru": "NeuroAI · ЭЭГ и фМРТ"
+      },
+      "description": {
+        "en": "Developed tokenization and pretraining methods for EEG and fMRI using Transformer/ViT architectures, BSQ and VQ-VAE representations, and masked modeling. Evaluated transfer across subjects and recording configurations with controls for data leakage.",
+        "ru": "Разрабатывала токенизацию и предобучение моделей ЭЭГ и фМРТ: Transformer/ViT, дискретные представления BSQ и VQ-VAE, обучение с маскированием. Оценивала перенос между испытуемыми и схемами регистрации с контролем утечек данных."
+      },
+      "tags": [
+        "Transformers",
+        "Masked Modeling",
+        "EEG / fMRI"
+      ],
+      "url": "",
+      "link": {
+        "en": "Project details",
+        "ru": "Подробнее"
+      }
+    },
+    {
+      "id": "imaging",
+      "title": {
+        "en": "Medical Image Modeling",
+        "ru": "Моделирование медицинских изображений"
+      },
+      "period": {
+        "en": "2026 · MRI, Ultrasound & OCT",
+        "ru": "2026 · МРТ, УЗИ и ОКТ"
+      },
+      "description": {
+        "en": "Research on cardiac MRI segmentation and biomarker estimation, transfer-aware ultrasound biometry, and inverse OCT phantom generation. Three accepted contributions to MICCAI 2026 workshops and challenges.",
+        "ru": "Исследования сегментации МРТ сердца и оценки биомаркеров, УЗ-биометрии с учётом переноса моделей и обратной генерации ОКТ-фантомов. Три работы приняты в воркшопы и соревнования MICCAI 2026."
+      },
+      "tags": [
+        "Segmentation",
+        "Transfer Learning",
+        "Inverse Rendering"
+      ],
+      "url": "#research-papers",
+      "link": {
+        "en": "Read the papers",
+        "ru": "Публикации"
+      }
+    },
+    {
+      "id": "organoids",
+      "title": {
+        "en": "Brain Organoid Data Analysis",
+        "ru": "Анализ данных органоидов мозга"
+      },
+      "period": {
+        "en": "Biomedical AI · Transcriptomics & Proteomics",
+        "ru": "Биомедицинский ИИ · Транскриптомика и протеомика"
+      },
+      "description": {
+        "en": "Computational analysis of molecular responses to hypoxia in human brain and choroid plexus organoids. Statistical modeling and integration of omics data supported studies published in Fluids and Barriers of the CNS (2025) and iScience (2026).",
+        "ru": "Вычислительный анализ молекулярного ответа на гипоксию в органоидах мозга и сосудистого сплетения человека. Статистическое моделирование и анализ omics-данных легли в основу исследований, опубликованных в Fluids and Barriers of the CNS (2025) и iScience (2026)."
+      },
+      "tags": [
+        "Statistical Modeling",
+        "Omics",
+        "Biomarkers"
+      ],
+      "url": "#research-papers",
+      "link": {
+        "en": "Read the papers",
+        "ru": "Публикации"
+      }
+    },
+    {
+      "id": "pyopennft",
+      "title": {
+        "en": "pyOpenNFT",
+        "ru": "pyOpenNFT"
+      },
+      "period": {
+        "en": "Real-time neurofeedback · MICCAI 2025",
+        "ru": "Нейрообратная связь в реальном времени · MICCAI 2025"
+      },
+      "description": {
+        "en": "Open-source Python framework for real-time fMRI and EEG-fMRI neurofeedback with machine-learning integration, parallel signal processing, and a prediction service.",
+        "ru": "Открытый Python-фреймворк для нейрообратной связи по фМРТ и ЭЭГ-фМРТ в реальном времени: интеграция ML-моделей, параллельная обработка сигналов и сервис предсказаний."
+      },
+      "tags": [
+        "Python",
+        "FastAPI",
+        "Neurofeedback"
+      ],
+      "url": "https://github.com/OpenNFT/pyOpenNFT",
+      "link": {
+        "en": "Code on GitHub",
+        "ru": "Код на GitHub"
+      }
+    },
+    {
+      "id": "cstnet",
+      "title": {
+        "en": "CSTNet",
+        "ru": "CSTNet"
+      },
+      "period": {
+        "en": "EMA4MICCAI 2025 · proceedings 2026",
+        "ru": "EMA4MICCAI 2025 · публикация 2026"
+      },
+      "description": {
+        "en": "Generative EEG-to-ECoG mapping using optimal transport. Contributed to the framework described in the EMA4MICCAI 2025 paper, published by Springer in 2026.",
+        "ru": "Генеративное преобразование ЭЭГ в ЭКоГ с помощью оптимального транспорта. Участвовала в разработке метода, представленного на EMA4MICCAI 2025 и опубликованного Springer в 2026 году."
+      },
+      "tags": [
+        "PyTorch",
+        "Optimal Transport",
+        "EEG-to-ECoG"
+      ],
+      "url": "https://github.com/RuslanKalimullin/CSTNet",
+      "link": {
+        "en": "Code on GitHub",
+        "ru": "Код на GitHub"
+      }
+    },
+    {
+      "id": "rest2task",
+      "title": {
+        "en": "Rest2Task",
+        "ru": "Rest2Task"
+      },
+      "period": {
+        "en": "Generative neuroimaging",
+        "ru": "Генеративная нейровизуализация"
+      },
+      "description": {
+        "en": "Generative framework for predicting task-based fMRI from resting-state recordings using variational autoencoders and generative adversarial models.",
+        "ru": "Генеративный фреймворк для предсказания фМРТ при выполнении заданий по записям фМРТ покоя с помощью вариационных автоэнкодеров и генеративно-состязательных моделей."
+      },
+      "tags": [
+        "VAE",
+        "GAN",
+        "fMRI"
+      ],
+      "url": "https://github.com/utoprey/Rest2Task",
+      "link": {
+        "en": "Code on GitHub",
+        "ru": "Код на GitHub"
+      }
+    },
+    {
+      "id": "neuroforum",
+      "title": {
+        "en": "Neuroforum",
+        "ru": "Neuroforum"
+      },
+      "period": {
+        "en": "Research software · AI agents",
+        "ru": "Научное ПО · ИИ-агенты"
+      },
+      "description": {
+        "en": "Designed a platform for researchers and AI agents working with scientific materials. Implemented a FastAPI service, MCP tools, access controls, background jobs with RabbitMQ/Dramatiq, LLM cost accounting, Docker Compose, and CI checks.",
+        "ru": "Спроектировала платформу работы исследователей и ИИ-агентов с научными материалами. Реализовала FastAPI-сервис, MCP-инструменты, разграничение доступа, фоновые задачи RabbitMQ/Dramatiq, учёт стоимости LLM-вызовов, Docker Compose и CI-проверки."
+      },
+      "tags": [
+        "FastAPI",
+        "MCP",
+        "Docker"
+      ],
+      "url": "",
+      "link": {
+        "en": "Project details",
+        "ru": "Подробнее"
+      }
+    }
+  ],
+  "publications": [
+    {
+      "id": "cardiac",
+      "title": "Geometry-Aware Multi-View Cardiac MRI Segmentation and Biomarker Estimation",
+      "authors": "Antipushina E., Sukhorukov D., Cherkasskaya E., Makarov I.",
+      "venue": "1st MICCAI Workshop on Medical World Models",
+      "year": 2026,
+      "status": "accepted",
+      "url": "https://openreview.net/forum?id=8fgjDHh6FH"
+    },
+    {
+      "id": "tabs",
+      "title": "TABS: Transfer-Aware Backbone Selection for Cross-Centre Ultrasound Biometry",
+      "authors": "Sukhorukov D., Antipushina E., Makarov I.",
+      "venue": "1st MICCAI Workshop on Medical World Models",
+      "year": 2026,
+      "status": "accepted",
+      "url": "https://openreview.net/forum?id=5IcejzMtsU"
+    },
+    {
+      "id": "oct",
+      "title": "Speckle-Phase Refinement on an Exact Differentiable Scanner Twin for Inverse OCT Phantom Generation",
+      "authors": "Sukhorukov D., Antipushina E., Koush Y., Makarov I.",
+      "venue": "SynthOCT Challenge, MICCAI",
+      "year": 2026,
+      "status": "accepted",
+      "url": "https://openreview.net/forum?id=eT8xnrF58D"
+    },
+    {
+      "id": "organoids",
+      "title": "Female metabolic resilience and male-biased protein quality defects under hypoxia in human brain organoids",
+      "authors": "Gaston-Breton R., Bouzid A., Antipushina E., et al.",
+      "venue": "iScience 29(5), 115714",
+      "year": 2026,
+      "status": "published",
+      "url": "https://doi.org/10.1016/j.isci.2026.115714"
+    },
+    {
+      "id": "cstnet",
+      "title": "CSTNet: A Generative Framework for EEG-to-ECoG Mapping via Optimal Transport",
+      "authors": "Kalimullin R., Antipushina E., Razorenova A., Kormakov G., Koshev N.",
+      "venue": "EMA4MICCAI 2025, Springer, pp. 154–162",
+      "year": 2026,
+      "status": "published",
+      "url": "https://doi.org/10.1007/978-3-032-13961-0_16"
+    },
+    {
+      "id": "biomarkers",
+      "title": "Translational biomarkers of hypoxic brain injury uncovered in CSF secreting human choroid plexus organoids",
+      "authors": "Gaston-Breton R., Bouzid A., Antipushina E., et al.",
+      "venue": "Fluids and Barriers of the CNS 22, 117",
+      "year": 2025,
+      "status": "published",
+      "url": "https://doi.org/10.1186/s12987-025-00731-z"
+    },
+    {
+      "id": "pyopennft",
+      "title": "pyOpenNFT: An Open-Source Python Framework for ML-Based Real-Time fMRI and EEG-fMRI Neurofeedback",
+      "authors": "Antipushina E., Davydov N., De Feo R., et al.",
+      "venue": "MICCAI 2025, Springer",
+      "year": 2025,
+      "status": "published",
+      "url": "https://doi.org/10.1007/978-3-032-05162-2_55"
+    },
+    {
+      "id": "kidney",
+      "title": "Interpretable AI models for predicting distant metastasis development based on genetic data: Kidney cancer example",
+      "authors": "Boyko M., Antipushina E., Bernstein A., et al.",
+      "venue": "BIO Web of Conferences 100, 01009",
+      "year": 2024,
+      "status": "published",
+      "url": "https://doi.org/10.1051/bioconf/202410001009"
+    },
+    {
+      "id": "sensations",
+      "title": "Artificial Sensations Evoked by Transcutaneous Electrical Nerve Stimulation: Investigating the Parameters Space",
+      "authors": "Piliugin N., Knyshenko M., Sain A., Antipushina E., Soghoyan G., Lebedev M.",
+      "venue": "IEEE Ural-Siberian Conference on Computational Technologies in Cognitive Science, Genomics and Biomedicine (CSGB)",
+      "year": 2023,
+      "status": "published",
+      "url": "https://doi.org/10.1109/CSGB60362.2023.10329845"
+    },
+    {
+      "id": "ventricular",
+      "title": "Left Ventricular Assist Devices in the Management of End-Stage Heart Failure",
+      "authors": "Antipushina E., Antipushina D. N.",
+      "venue": "Conference paper",
+      "year": 2021,
+      "status": "published",
+      "url": "https://www.researchgate.net/publication/387017833_LEFT_VENTRICULARASSIST_DEVICES_IN_THE_MANAGEMENT_OF_END-STAGE_HEART_FAILURE"
+    },
+    {
+      "id": "eegfmri",
+      "title": "EEG-to-fMRI Prediction for Neurofeedback: Evaluating Regularized Regression and Clustering Approaches",
+      "authors": "De Feo R., Antipushina E., Tyukin I., Koush Y.",
+      "venue": "bioRxiv",
+      "year": 2025,
+      "status": "preprint",
+      "url": "https://doi.org/10.1101/2025.05.20.654907"
+    },
+    {
+      "id": "pearson",
+      "title": "Comparative analysis of Pearson and Canonical correlation-based functional connectivity matrices for neuroimaging classification tasks",
+      "authors": "Antipushina E., Zubrikhina M., Kalimullin R., Kotoyants N., Sharaev M.",
+      "venue": "bioRxiv",
+      "year": 2024,
+      "status": "preprint",
+      "url": "https://doi.org/10.1101/2024.04.23.590747"
+    }
+  ],
+  "posters": [
+    {
+      "title": "Rest2Task: generative modeling for task-based fMRI prediction",
+      "venue": "Sber RnD Day",
+      "year": 2024,
+      "url": "/research/posters/Rest2Task.pdf"
+    },
+    {
+      "title": "The application of machine learning methods for multimodal neuroimaging data in the diagnosis of schizophrenia",
+      "venue": "LIFT Conference",
+      "year": 2024,
+      "url": "/research/posters/Antipushina_LIFT_conference.jpg"
+    },
+    {
+      "title": "Development of a personalized Transcranial Magnetic Stimulation complex utilizing biofeedback",
+      "venue": "Poster",
+      "year": 2024,
+      "url": "https://www.researchgate.net/publication/380169968_Development_of_a_personalized_Transcranial_Magnetic_Stimulation_complex_utilizing_biofeedback"
+    },
+    {
+      "title": "Benchmarking of Machine Learning and Deep Learning approaches for Neuroimaging Data",
+      "venue": "Poster",
+      "year": 2023,
+      "url": "https://www.researchgate.net/profile/Ekaterina-Antipushina"
+    }
+  ]
+}

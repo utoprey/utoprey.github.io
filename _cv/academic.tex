@@ -1,0 +1,82 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage[a4paper,left=17mm,right=17mm,top=16mm,bottom=17mm]{geometry}
+\usepackage{titlesec,enumitem,xcolor,tabularx,array,fancyhdr,hyperref}
+\definecolor{accent}{HTML}{174A63}
+\definecolor{muted}{HTML}{52616B}
+\hypersetup{colorlinks=true,urlcolor=accent,pdftitle={Ekaterina Antipushina | Academic CV},pdfauthor={Ekaterina Antipushina}}
+\urlstyle{same}
+\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\scriptsize\color{muted}Ekaterina Antipushina · NeuroAI \& Embodied AI}
+\fancyfoot[R]{\scriptsize\color{muted}September 2026 · \thepage}
+\setlength{\footskip}{22pt}\setlength{\parindent}{0pt}\setlength{\tabcolsep}{0pt}
+\setlength{\emergencystretch}{2em}\raggedright
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-2pt}\titlerule]
+\titlespacing*{\section}{0pt}{9pt}{5pt}
+\setlist[enumerate]{leftmargin=15pt,itemsep=5pt,topsep=4pt,parsep=0pt}
+\newcommand{\entry}[3]{\vspace{4pt}\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X r@{}}\textbf{#1}&{\small\color{muted}#2}\\\end{tabularx}\par{\small\color{muted}#3}\par\vspace{2pt}}
+\begin{document}\fontsize{10.5}{12.6}\selectfont
+{\fontsize{25}{29}\selectfont\bfseries Ekaterina Antipushina}\par\vspace{4pt}
+{\large\color{accent}NeuroAI \& Embodied AI · ML Research \& Engineering}\par\vspace{6pt}
+\href{mailto:ekantipushina@gmail.com}{ekantipushina@gmail.com} · Moscow, Russia\par
+\href{https://utoprey.github.io/}{Website} · \href{https://scholar.google.com/citations?user=7VOBHhMAAAAJ}{Google Scholar} · \href{https://orcid.org/0009-0009-9708-440X}{ORCID} · \href{https://github.com/utoprey}{GitHub} · \href{https://www.linkedin.com/in/katherine-antipushina/}{LinkedIn}\par
+\section{Research profile}
+Researcher and machine-learning engineer working on multimodal learning for neural signals, medical images, and 3D scenes. Research spans representation learning, generative modeling, real-time neurofeedback, and spatial reasoning with vision-language models. PhD student at Skoltech and ML Engineer at the Spatial Intelligence Lab, Applied AI Institute.
+\section{Research and engineering experience}
+\entry{Machine Learning Engineer}{October 2025 – present}{Spatial Intelligence Lab, Applied AI Institute}
+Developing and benchmarking LLM and vision-language systems for 3D scene understanding and language-guided object localization. Working with scene graphs, geometry, tool use, and evaluation of spatial reasoning in a joint project with Huawei.\par
+\entry{Research Engineer, Medical AI}{November 2024 – September 2025}{Skoltech · Neuroimaging and Cognitive Neuroscience Lab}
+Developed pyOpenNFT, an open-source Python framework for real-time fMRI and EEG-fMRI neurofeedback. Implemented parallel signal processing with shared memory and a FastAPI prediction service for integrating machine-learning models. First author of the MICCAI 2025 framework paper.\par
+\entry{Machine Learning Engineer · part-time}{July 2024 – August 2025}{BIMAI-Lab, University of Sharjah}
+Led computational analysis of transcriptomic and proteomic data in international studies of human brain organoids under hypoxia. Developed statistical and machine-learning workflows, interpreted results with the experimental team, and contributed to papers in Fluids and Barriers of the CNS and iScience.\par
+\entry{ML Engineer / Research Engineer}{January 2023 – December 2024}{Skoltech · Medical AI / BIMAI-Lab}
+Developed generative and interpretable models for multimodal neuroimaging and biomedical data, including Rest2Task, EEG-to-ECoG modeling, schizophrenia classification, and kidney-cancer metastasis prediction. Worked with data fusion, feature selection, graph representations, and validation on small medical datasets.\par
+\section{Education}
+\textbf{PhD student} · Skolkovo Institute of Science and Technology (Skoltech) · 2024 – present\par\vspace{3pt}
+\textbf{Master of Science} · Skoltech · 2022 – 2024\par\vspace{3pt}
+\textbf{Bachelor’s degree in Biomedical Engineering} · Moscow Aviation Institute · 2018 – 2022\par\vspace{3pt}
+\section{Methods and tools}
+Python, PyTorch, TensorFlow, scikit-learn, NumPy/pandas; Transformers, VAE/GAN, optimal transport; multimodal fusion, statistical modeling, subject-wise validation; FastAPI, multiprocessing, Docker, Git, Linux, GPU computing.\par
+\newpage\section{Publications and preprints}
+\begingroup\fontsize{10.2}{12.5}\selectfont
+\subsection*{Accepted papers · 2026}
+\begin{enumerate}
+\item Antipushina E., Sukhorukov D., Cherkasskaya E., Makarov I. \textit{Geometry-Aware Multi-View Cardiac MRI Segmentation and Biomarker Estimation}. 1st MICCAI Workshop on Medical World Models, 2026. \href{https://openreview.net/forum?id=8fgjDHh6FH}{OpenReview}.
+\item Sukhorukov D., Antipushina E., Makarov I. \textit{TABS: Transfer-Aware Backbone Selection for Cross-Centre Ultrasound Biometry}. 1st MICCAI Workshop on Medical World Models, 2026. \href{https://openreview.net/forum?id=5IcejzMtsU}{OpenReview}.
+\item Sukhorukov D., Antipushina E., Koush Y., Makarov I. \textit{Speckle-Phase Refinement on an Exact Differentiable Scanner Twin for Inverse OCT Phantom Generation}. SynthOCT Challenge, MICCAI, 2026. \href{https://openreview.net/forum?id=eT8xnrF58D}{OpenReview}.
+\end{enumerate}
+\subsection*{Published papers}
+\begin{enumerate}
+\item Gaston-Breton R., Bouzid A., Antipushina E., et al. \textit{Female metabolic resilience and male-biased protein quality defects under hypoxia in human brain organoids}. iScience 29(5), 115714, 2026. \href{https://doi.org/10.1016/j.isci.2026.115714}{10.1016/j.isci.2026.115714}.
+\item Kalimullin R., Antipushina E., Razorenova A., Kormakov G., Koshev N. \textit{CSTNet: A Generative Framework for EEG-to-ECoG Mapping via Optimal Transport}. EMA4MICCAI 2025, Springer, pp. 154–162, 2026. \href{https://doi.org/10.1007/978-3-032-13961-0_16}{10.1007/978-3-032-13961-0\_16}.
+\item Gaston-Breton R., Bouzid A., Antipushina E., et al. \textit{Translational biomarkers of hypoxic brain injury uncovered in CSF secreting human choroid plexus organoids}. Fluids and Barriers of the CNS 22, 117, 2025. \href{https://doi.org/10.1186/s12987-025-00731-z}{10.1186/s12987-025-00731-z}.
+\item Antipushina E., Davydov N., De Feo R., et al. \textit{pyOpenNFT: An Open-Source Python Framework for ML-Based Real-Time fMRI and EEG-fMRI Neurofeedback}. MICCAI 2025, Springer, 2025. \href{https://doi.org/10.1007/978-3-032-05162-2_55}{10.1007/978-3-032-05162-2\_55}.
+\item Boyko M., Antipushina E., Bernstein A., et al. \textit{Interpretable AI models for predicting distant metastasis development based on genetic data: Kidney cancer example}. BIO Web of Conferences 100, 01009, 2024. \href{https://doi.org/10.1051/bioconf/202410001009}{10.1051/bioconf/202410001009}.
+\item Piliugin N., Knyshenko M., Sain A., Antipushina E., Soghoyan G., Lebedev M. \textit{Artificial Sensations Evoked by Transcutaneous Electrical Nerve Stimulation: Investigating the Parameters Space}. IEEE Ural-Siberian Conference on Computational Technologies in Cognitive Science, Genomics and Biomedicine (CSGB), 2023. \href{https://doi.org/10.1109/CSGB60362.2023.10329845}{10.1109/CSGB60362.2023.10329845}.
+\item Antipushina E., Antipushina D. N. \textit{Left Ventricular Assist Devices in the Management of End-Stage Heart Failure}. Conference paper, 2021. \href{https://www.researchgate.net/publication/387017833_LEFT_VENTRICULARASSIST_DEVICES_IN_THE_MANAGEMENT_OF_END-STAGE_HEART_FAILURE}{Publication record}.
+\end{enumerate}
+\subsection*{Preprints}
+\begin{enumerate}
+\item De Feo R., Antipushina E., Tyukin I., Koush Y. \textit{EEG-to-fMRI Prediction for Neurofeedback: Evaluating Regularized Regression and Clustering Approaches}. bioRxiv, 2025. \href{https://doi.org/10.1101/2025.05.20.654907}{10.1101/2025.05.20.654907}.
+\item Antipushina E., Zubrikhina M., Kalimullin R., Kotoyants N., Sharaev M. \textit{Comparative analysis of Pearson and Canonical correlation-based functional connectivity matrices for neuroimaging classification tasks}. bioRxiv, 2024. \href{https://doi.org/10.1101/2024.04.23.590747}{10.1101/2024.04.23.590747}.
+\end{enumerate}
+\endgroup\newpage\section{Research and software projects}
+\begingroup\fontsize{10.2}{12.5}\selectfont
+\textbf{\href{https://utoprey.github.io/experience/EkaterinaAntipushinaCV.pdf}{3D Spatial Understanding}}\par Developing and benchmarking LLM and vision-language systems for 3D scene understanding and language-guided object localization. Working with scene graphs, geometry, tool use, and evaluation of spatial reasoning in a joint project with Huawei.\par\vspace{5pt}
+\textbf{Neural Representation Learning}\par Developed tokenization and pretraining methods for EEG and fMRI using Transformer/ViT architectures, BSQ and VQ-VAE representations, and masked modeling. Evaluated transfer across subjects and recording configurations with controls for data leakage.\par\vspace{5pt}
+\textbf{Medical Image Modeling}\par Research on cardiac MRI segmentation and biomarker estimation, transfer-aware ultrasound biometry, and inverse OCT phantom generation. Three accepted contributions to MICCAI 2026 workshops and challenges.\par\vspace{5pt}
+\textbf{Brain Organoid Data Analysis}\par Computational analysis of molecular responses to hypoxia in human brain and choroid plexus organoids. Statistical modeling and integration of omics data supported studies published in Fluids and Barriers of the CNS (2025) and iScience (2026).\par\vspace{5pt}
+\textbf{\href{https://github.com/OpenNFT/pyOpenNFT}{pyOpenNFT}}\par Open-source Python framework for real-time fMRI and EEG-fMRI neurofeedback with machine-learning integration, parallel signal processing, and a prediction service.\par\vspace{5pt}
+\textbf{\href{https://github.com/RuslanKalimullin/CSTNet}{CSTNet}}\par Generative EEG-to-ECoG mapping using optimal transport. Contributed to the framework described in the EMA4MICCAI 2025 paper, published by Springer in 2026.\par\vspace{5pt}
+\textbf{\href{https://github.com/utoprey/Rest2Task}{Rest2Task}}\par Generative framework for predicting task-based fMRI from resting-state recordings using variational autoencoders and generative adversarial models.\par\vspace{5pt}
+\textbf{Neuroforum}\par Designed a platform for researchers and AI agents working with scientific materials. Implemented a FastAPI service, MCP tools, access controls, background jobs with RabbitMQ/Dramatiq, LLM cost accounting, Docker Compose, and CI checks.\par\vspace{5pt}
+\section{Posters}
+\href{https://utoprey.github.io/research/posters/Rest2Task.pdf}{Rest2Task: generative modeling for task-based fMRI prediction}. Sber RnD Day, 2024.\par\vspace{4pt}
+\href{https://utoprey.github.io/research/posters/Antipushina_LIFT_conference.jpg}{The application of machine learning methods for multimodal neuroimaging data in the diagnosis of schizophrenia}. LIFT Conference, 2024.\par\vspace{4pt}
+\href{https://www.researchgate.net/publication/380169968_Development_of_a_personalized_Transcranial_Magnetic_Stimulation_complex_utilizing_biofeedback}{Development of a personalized Transcranial Magnetic Stimulation complex utilizing biofeedback}. Poster, 2024.\par\vspace{4pt}
+\href{https://www.researchgate.net/profile/Ekaterina-Antipushina}{Benchmarking of Machine Learning and Deep Learning approaches for Neuroimaging Data}. Poster, 2023.\par\vspace{4pt}
+\section{Research talks}
+Universal Brain Encoder: The Evolution of Models for Neural Signals. NeuroTalk, MISIS University, April 2026.\par\vspace{4pt}
+Bridge Between Time and Space: How Generative AI Turns EEG into fMRI. DataFest (ODS), March 2025.\par
+\endgroup\end{document}
