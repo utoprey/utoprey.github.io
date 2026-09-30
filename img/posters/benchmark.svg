@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="840" viewBox="0 0 600 840">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#eff7f4"/><stop offset="1" stop-color="#e7e9fb"/></linearGradient>
+    <linearGradient id="brain" x2="1" y2="1"><stop stop-color="#d2e5e0"/><stop offset="1" stop-color="#bcbbe9"/></linearGradient>
+  </defs>
+  <rect width="600" height="840" rx="12" fill="url(#bg)"/>
+  <g font-family="Arial, sans-serif" fill="#293c55">
+    <text x="48" y="73" font-size="15" letter-spacing="3">NEUROIMAGING · 2023</text>
+    <text x="48" y="137" font-size="39" font-weight="700">Benchmarking</text>
+    <text x="48" y="185" font-size="32">Machine Learning</text>
+    <text x="48" y="228" font-size="32">&amp; Deep Learning</text>
+    <path d="M290 313 C263 282 205 299 201 337 C159 338 151 386 165 407 C137 441 155 483 183 490 C184 532 223 551 260 534 C276 552 288 547 295 529 L295 325 Z M310 313 C337 282 395 299 399 337 C441 338 449 386 435 407 C463 441 445 483 417 490 C416 532 377 551 340 534 C324 552 312 547 305 529 L305 325 Z" fill="url(#brain)" stroke="#899bbe" stroke-width="2"/>
+    <g stroke="#718cac" stroke-width="2" fill="none" opacity="0.8">
+      <path d="M217 350 262 330 273 392 204 412 219 481 269 507 273 392 217 350 183 449 219 481 262 330"/>
+      <path d="M383 350 338 330 327 392 396 412 381 481 331 507 327 392 383 350 417 449 381 481 338 330"/>
+      <path d="M204 412 396 412 M262 330 338 330 M219 481 381 481" stroke-dasharray="5 7" opacity="0.45"/>
+    </g>
+    <g fill="#638a91" stroke="#fff" stroke-width="3">
+      <circle cx="217" cy="350" r="8"/><circle cx="262" cy="330" r="8"/><circle cx="273" cy="392" r="9"/><circle cx="204" cy="412" r="8"/><circle cx="183" cy="449" r="7"/><circle cx="219" cy="481" r="9"/><circle cx="269" cy="507" r="7"/>
+    </g>
+    <g fill="#9382ba" stroke="#fff" stroke-width="3">
+      <circle cx="383" cy="350" r="8"/><circle cx="338" cy="330" r="8"/><circle cx="327" cy="392" r="9"/><circle cx="396" cy="412" r="8"/><circle cx="417" cy="449" r="7"/><circle cx="381" cy="481" r="9"/><circle cx="331" cy="507" r="7"/>
+    </g>
+    <path d="M300 563 V590 M158 615 V590 H442 V615" fill="none" stroke="#8f9cb7" stroke-width="2"/>
+    <rect x="62" y="615" width="194" height="98" rx="18" fill="#fff" fill-opacity="0.75"/>
+    <rect x="344" y="615" width="194" height="98" rx="18" fill="#fff" fill-opacity="0.75"/>
+    <text x="159" y="659" text-anchor="middle" font-size="25" font-weight="700">ML</text>
+    <text x="159" y="686" text-anchor="middle" font-size="15">Feature-based models</text>
+    <text x="441" y="659" text-anchor="middle" font-size="25" font-weight="700">DL</text>
+    <text x="441" y="686" text-anchor="middle" font-size="15">Neural networks</text>
+    <text x="300" y="775" text-anchor="middle" font-size="14" letter-spacing="2" fill="#72829a">RESEARCH ILLUSTRATION</text>
+  </g>
+</svg>

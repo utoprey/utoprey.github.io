@@ -16,8 +16,8 @@
         "ru": "Октябрь 2025 — настоящее время"
       },
       "description": {
-        "en": "Developing and benchmarking LLM and vision-language systems for 3D scene understanding and language-guided object localization. Working with scene graphs, geometry, tool use, and evaluation of spatial reasoning in a joint project with Huawei.",
-        "ru": "Разрабатываю и тестирую системы на основе LLM и визуально-языковых моделей для понимания 3D-сцен и поиска объектов по текстовым запросам. Работаю с графами сцен, геометрией, вызовом инструментов и оценкой пространственного рассуждения в совместном проекте с Huawei."
+        "en": "Developing LLM agents and computer vision systems for 3D scene understanding in a joint project with Huawei. Combining vision-language models, scene graphs and geometry to locate objects from natural-language queries. Building retrieval-augmented (RAG) and tool-calling workflows, multi-step answer verification, and automated evaluation of visual grounding and spatial reasoning.",
+        "ru": "Разрабатываю LLM-агентов и системы компьютерного зрения (Computer Vision) для понимания 3D-сцен в совместном проекте с Huawei. Объединяю визуально-языковые модели, графы сцен и геометрию для поиска объектов по текстовым запросам. Реализую RAG, вызов инструментов, многошаговую проверку ответов и автоматическую оценку локализации объектов и пространственного рассуждения."
       },
       "kind": "work"
     },
@@ -154,8 +154,8 @@
         "ru": "Embodied AI · Пространственный интеллект"
       },
       "description": {
-        "en": "Developing and benchmarking LLM and vision-language systems for 3D scene understanding and language-guided object localization. Working with scene graphs, geometry, tool use, and evaluation of spatial reasoning in a joint project with Huawei.",
-        "ru": "Разрабатываю и тестирую системы на основе LLM и визуально-языковых моделей для понимания 3D-сцен и поиска объектов по текстовым запросам. Работаю с графами сцен, геометрией, вызовом инструментов и оценкой пространственного рассуждения в совместном проекте с Huawei."
+        "en": "Developing LLM agents and computer vision systems for 3D scene understanding in a joint project with Huawei. Combining vision-language models, scene graphs and geometry to locate objects from natural-language queries. Building retrieval-augmented (RAG) and tool-calling workflows, multi-step answer verification, and automated evaluation of visual grounding and spatial reasoning.",
+        "ru": "Разрабатываю LLM-агентов и системы компьютерного зрения (Computer Vision) для понимания 3D-сцен в совместном проекте с Huawei. Объединяю визуально-языковые модели, графы сцен и геометрию для поиска объектов по текстовым запросам. Реализую RAG, вызов инструментов, многошаговую проверку ответов и автоматическую оценку локализации объектов и пространственного рассуждения."
       },
       "tags": [
         "Vision-Language Models",
@@ -452,7 +452,8 @@
       "cover": {
         "topic": "Interpretable medical AI",
         "venue": "BIO Web of Conferences"
-      }
+      },
+      "show_on_site": false
     },
     {
       "id": "sensations",
@@ -465,7 +466,8 @@
       "cover": {
         "topic": "Artificial sensations",
         "venue": "IEEE · CSGB"
-      }
+      },
+      "show_on_site": false
     },
     {
       "id": "ventricular",
@@ -478,7 +480,8 @@
       "cover": {
         "topic": "Biomedical engineering",
         "venue": "Conference paper"
-      }
+      },
+      "show_on_site": false
     },
     {
       "id": "eegfmri",
@@ -502,7 +505,8 @@
       "url": "https://doi.org/10.1101/2024.04.23.590747",
       "image": "/img/publications/pearson.webp?v=2026-10-01-figures",
       "image_width": 960,
-      "image_height": 540
+      "image_height": 540,
+      "show_on_site": false
     }
   ],
   "posters": [
@@ -510,25 +514,46 @@
       "title": "Rest2Task: generative modeling for task-based fMRI prediction",
       "venue": "Sber RnD Day",
       "year": 2024,
-      "url": "/research/posters/Rest2Task.pdf"
+      "url": "/research/posters/Rest2Task.pdf",
+      "id": "rest2task",
+      "image": "/img/posters/rest2task.webp",
+      "image_width": 800,
+      "image_height": 1131
     },
     {
       "title": "The application of machine learning methods for multimodal neuroimaging data in the diagnosis of schizophrenia",
       "venue": "LIFT Conference",
       "year": 2024,
-      "url": "/research/posters/Antipushina_LIFT_conference.jpg"
+      "url": "/research/posters/Antipushina_LIFT_conference.jpg",
+      "id": "lift",
+      "image": "/img/posters/lift.webp",
+      "image_width": 800,
+      "image_height": 1124
     },
     {
       "title": "Development of a personalized Transcranial Magnetic Stimulation complex utilizing biofeedback",
-      "venue": "Poster",
+      "venue": "LIFT School of Young Neurotechnologists",
       "year": 2024,
-      "url": "https://www.researchgate.net/publication/380169968_Development_of_a_personalized_Transcranial_Magnetic_Stimulation_complex_utilizing_biofeedback"
+      "url": "https://www.researchgate.net/publication/380169968_Development_of_a_personalized_Transcranial_Magnetic_Stimulation_complex_utilizing_biofeedback",
+      "id": "tms",
+      "image": "/img/posters/tms.webp",
+      "image_width": 847,
+      "image_height": 1200
     },
     {
       "title": "Benchmarking of Machine Learning and Deep Learning approaches for Neuroimaging Data",
-      "venue": "Poster",
+      "venue": "Summer of Machine Learning · Skoltech",
       "year": 2023,
-      "url": "https://www.researchgate.net/profile/Ekaterina-Antipushina"
+      "url": "https://www.researchgate.net/publication/377979033_Benchmarking_of_Machine_Learning_and_Deep_Learning_approaches_for_Neuroimaging_Data",
+      "id": "benchmark",
+      "image": "/img/posters/benchmark.svg",
+      "image_width": 600,
+      "image_height": 840,
+      "record_only": true,
+      "image_note": {
+        "en": "Research illustration · original poster unavailable",
+        "ru": "Иллюстрация к работе · оригинал постера пока недоступен"
+      }
     }
   ],
   "talks": [
@@ -590,5 +615,5 @@
     }
   ],
   "page_updated": "2026-10-01",
-  "assets_version": "2026-10-01-figures"
+  "assets_version": "2026-10-01-profile-posters"
 }

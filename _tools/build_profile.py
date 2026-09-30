@@ -1,10 +1,11 @@
-"""Refresh the EN/RU profile sections and the public CV from one content file.
+"""Refresh EN/RU profile sections without overwriting the selected public CV.
 
-Run with Python (beautifulsoup4) and XeLaTeX installed. Generated HTML and PDF
-are committed so GitHub Pages needs no custom build configuration.
+Run with Python and beautifulsoup4. XeLaTeX is only needed for --cv-draft.
+Generated HTML is committed so GitHub Pages needs no custom build configuration.
 """
 import argparse
 import json
+import re
 import subprocess
 import tempfile
 from html import escape
@@ -23,7 +24,7 @@ LABELS = {
         'intro': 'Papers, accepted contributions, and preprints. Posters and talks are listed below.',
         'scholar': 'Google Scholar', 'rg': 'ResearchGate',
         'cv': 'Academic CV · PDF · September 2026',
-        'updated': 'Profile and CV updated September 2026',
+        'updated': 'Profile updated October 2026',
         'poster': 'Poster', 'view': 'View poster',
     },
     'ru': {
@@ -34,7 +35,7 @@ LABELS = {
         'intro': 'Опубликованные и принятые работы, а также препринты. Постеры и доклады представлены ниже.',
         'scholar': 'Google Scholar', 'rg': 'ResearchGate',
         'cv': 'Академическое CV · PDF на английском · сентябрь 2026',
-        'updated': 'Профиль и CV обновлены в сентябре 2026',
+        'updated': 'Профиль обновлён в октябре 2026',
         'poster': 'Постер', 'view': 'Открыть постер',
     },
 }
@@ -88,11 +89,12 @@ def render_research(s, lang):
                            '<div class="research-resources">' +
                            a('https://scholar.google.com/citations?user=7VOBHhMAAAAJ', 'Google Scholar', 'research-link') +
                            a(cv, 'CV · PDF', 'research-link') + '</div>'))
-    for year in sorted({p['year'] for p in DATA['publications']}, reverse=True):
+    visible_papers = [p for p in DATA['publications'] if p.get('show_on_site', True)]
+    for year in sorted({p['year'] for p in visible_papers}, reverse=True):
         group = fragment(f'<section class="publication-year" aria-labelledby="papers-{year}">'
                          f'<h4 class="publication-group-title" id="papers-{year}">{year}</h4>'
                          '<div class="publication-list"></div></section>')
-        for row in (p for p in DATA['publications'] if p['year'] == year):
+        for row in (p for p in visible_papers if p['year'] == year):
             authors = escape(row['authors']).replace('Antipushina E.', '<strong>Antipushina E.</strong>')
             venue = row['venue']
             if lang == 'ru' and venue == 'Conference paper':
@@ -133,6 +135,7 @@ def render_research(s, lang):
             <div class="research-resources">{links}</div>
             <details class="talk-abstract"><summary>{summary}</summary><p>{escape(row['description'][lang])}</p></details>
           </div></article>'''))
+    render_posters(s, lang)
     s.select_one('.research-nav-btn[href="#research-talks"]').string = 'Talks' if lang == 'en' else 'Доклады'
     s.select_one('link[rel="stylesheet"][href^="/assets/site.css"]')['href'] = '/assets/site.css?v=' + DATA.get('assets_version', DATA['page_updated'])
     schema_node = s.find('script', type='application/ld+json')
@@ -142,6 +145,35 @@ def render_research(s, lang):
     # Keep punctuation next to inline author names and venue citations.
     for tag in s.select('.pub-authors, .pub-venue'):
         tag.preserve_whitespace_tags = {'p'}
+    for tag in s.select('.bio-section .section-content > p'):
+        # Collapse formatting whitespace while retaining linked/bold prose.
+        markup = ' '.join(tag.decode_contents().split())
+        markup = re.sub(r'(<(?:strong|a)\b[^>]*>)\s+', r'\1', markup)
+        markup = re.sub(r'\s+(</(?:strong|a)>)', r'\1', markup)
+        markup = re.sub(r'\s+([,.;:])', r'\1', markup)
+        tag.clear()
+        tag.append(fragment(markup))
+        tag.preserve_whitespace_tags = {'p'}
+
+
+def render_posters(s, lang):
+    grid = s.select_one('.posters-grid')
+    grid.clear()
+    for row in DATA['posters']:
+        label = ('Открыть: ' if lang == 'ru' else 'Open: ') + row['title']
+        note = row.get('image_note', {}).get(lang, '')
+        caption = f'<figcaption>{escape(note)}</figcaption>' if note else ''
+        link_label = ('Publication record' if lang == 'en' else 'Страница работы') if row.get('record_only') else LABELS[lang]['view']
+        grid.append(fragment(f'''<article class="poster-card fade-in" id="poster-{row['id']}">
+          <figure class="poster-preview">
+            <a class="poster-image" href="{escape(row['url'], quote=True)}" aria-label="{escape(label, quote=True)}" target="_blank" rel="noopener noreferrer">
+              <img src="{escape(row['image'], quote=True)}" alt="" loading="lazy" decoding="async" width="{row['image_width']}" height="{row['image_height']}">
+            </a>{caption}
+          </figure>
+          <div class="poster-content"><h4>{escape(row['title'])}</h4>
+            <p class="poster-venue">{escape(row['venue'])} · {row['year']}</p>
+            {a(row['url'], link_label, 'poster-link')}
+          </div></article>'''))
 
 
 def render_research_pages():
@@ -180,15 +212,6 @@ def render_pages():
                 {link}
               </div></div>'''))
         render_research(s, lang)
-        # Preserve the two existing poster thumbnails and add the missing records.
-        poster_grid = s.select_one('.posters-grid')
-        for card in poster_grid.select('[data-profile-poster]'):
-            card.decompose()
-        for row in DATA['posters'][2:]:
-            poster_grid.append(fragment(f'''<div class="poster-card fade-in" data-profile-poster="true">
-              <div class="poster-content"><h3>{escape(row['title'])}</h3>
-              <p>{labels['poster']} · {row['year']}</p>
-              {a(row['url'], labels['view'], 'poster-link')}</div></div>'''))
         s.select_one('.cv-link .download-btn').string = labels['cv']
         for link in s.select('a[href]'):
             if link['href'].split('?')[0] == '/experience/EkaterinaAntipushinaCV.pdf':
@@ -298,17 +321,20 @@ Researcher and machine-learning engineer working on multimodal learning for neur
         log = (Path(tmp) / 'academic.log').read_text()
         if 'Overfull' in log:
             print('Layout warnings:', '\n'.join(l for l in log.splitlines() if 'Overfull' in l))
-        (ROOT / 'experience/EkaterinaAntipushinaCV.pdf').write_bytes((Path(tmp) / 'academic.pdf').read_bytes())
+        (ROOT / '_cv/academic-draft.pdf').write_bytes((Path(tmp) / 'academic.pdf').read_bytes())
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--research-only', action='store_true', help='Render publication and talk sections without rebuilding the CV.')
+    parser.add_argument('--research-only', action='store_true', help='Render publications, posters and talks only.')
+    parser.add_argument('--cv-draft', action='store_true', help='Also generate _cv/academic-draft.pdf; never replace the selected public CV.')
     args = parser.parse_args()
     if args.research_only:
         render_research_pages()
-        print('Updated English and Russian publications and talks.')
+        print('Updated English and Russian publications, posters and talks.')
     else:
         render_pages()
+        print('Updated English and Russian profiles; public CV preserved.')
+    if args.cv_draft:
         render_cv()
-        print('Updated English and Russian profiles and academic CV.')
+        print('Generated _cv/academic-draft.pdf for review.')

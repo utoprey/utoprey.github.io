@@ -642,7 +642,7 @@ body {
 /* Posters grid */
 .posters-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -676,6 +676,14 @@ body {
 .poster-content {
     padding: 1.5rem;
 }
+
+.poster-preview { margin: 0; background: #f2f4f7; }
+.poster-image { display: block; padding: 1.25rem; }
+.poster-image img { display: block; width: 100%; height: 320px; object-fit: contain; }
+.poster-preview figcaption { padding: 0 1rem 0.75rem; text-align: center; color: var(--text-gray); font-size: 0.8rem; }
+.poster-content h4 { font-size: 1.1rem; line-height: 1.5; margin-bottom: 0.6rem; }
+.poster-venue { color: var(--text-gray); margin-bottom: 0.8rem; }
+.poster-image:focus-visible { outline: 3px solid var(--coral); outline-offset: -3px; }
 
 .poster-link {
     color: var(--coral);
@@ -1124,7 +1132,6 @@ html { scroll-behavior: smooth; }
 .research-nav-btn { display: inline-block; text-decoration: none; text-align: center; }
 .cv-link { margin: 0 0 1.5rem; }
 .project-kicker { color: var(--text-gray); margin-top: .5rem; }
-.poster-document { display: flex; align-items: center; justify-content: center; min-height: 200px; background: var(--lavender); border-radius: 15px; font-size: 1.4rem; color: var(--text-dark); text-decoration: none; }
 .site-footer { text-align: center; padding: 2rem 1rem 3rem; color: var(--text-gray); }
 .site-footer a { color: inherit; }
 .skip-link { position: absolute; top: -100px; left: 1rem; padding: .75rem; background: white; z-index: 2000; }

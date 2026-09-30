@@ -6,24 +6,48 @@ Edit `_data/profile.json`, then run:
 python _tools/build_profile.py
 ```
 
-Requires Python with `beautifulsoup4`, XeLaTeX, and Arial. The command refreshes
-the English and Russian timeline, project, publication and talk sections, generates
-`_cv/academic.tex`, and compiles `experience/EkaterinaAntipushinaCV.pdf`.
-The generated HTML and PDF are committed; GitHub Pages serves them directly.
+Requires Python with `beautifulsoup4`. The command refreshes the English and
+Russian timeline, project, publication, poster and talk sections. It preserves
+`experience/EkaterinaAntipushinaCV.pdf`: selecting an authored CV is separate from
+updating website content. The generated HTML is committed for GitHub Pages.
 The rest of the bilingual biography remains in the HTML pages.
 
-To update just publications and talks without rebuilding the CV, run:
+To update just publications, posters and talks, run:
 
 ```sh
 python _tools/build_profile.py --research-only
 ```
 
-This mode only requires Python with `beautifulsoup4`. Publications and talks,
+Publications, posters and talks,
 including their links and media, are maintained in `_data/profile.json`.
 `updated` records the CV/content audit date; `page_updated` records the page
 update date. `assets_version` versions the stylesheet, including multiple
 design revisions on the same day. Keep `sitemap.xml` dates in sync with page
 updates. Image dimensions are stored alongside each image URL.
+
+`--cv-draft` optionally generates `_cv/academic.tex` and `_cv/academic-draft.pdf`
+using XeLaTeX and Arial. It never replaces the public CV. Review/select the
+public PDF independently; do not automatically publish the generated draft.
+
+## Profile and poster update, 1 October 2026
+
+- Added explicit LLM and computer vision focus to both introductions, biographies,
+  search descriptions and structured data. Expanded the spatial-intelligence
+  experience with RAG, tool calling and answer verification, supported by the
+  author's July 2026 LLM Agent Engineer CV. Kept existing employment dates.
+- Curated the website to eight papers. `show_on_site: false` hides `ventricular`,
+  `kidney`, `pearson` and `sensations` at the author's request. Bibliography data
+  remains available for archival use; every visible paper has an original figure.
+- All four posters now have lightweight linked images, shown in full without
+  cropping. `rest2task.webp` and `lift.webp` are previews of the existing files
+  in `research/posters/`. `tms.webp` is the English poster from the author's
+  [ResearchGate upload](https://www.researchgate.net/publication/380169968_Development_of_a_personalized_Transcranial_Magnetic_Stimulation_complex_utilizing_biofeedback).
+- `benchmark.svg` is a website illustration, explicitly captioned as such; the
+  original poster was not available. It contains no experimental results. The
+  card now links to the [specific publication record](https://www.researchgate.net/publication/377979033_Benchmarking_of_Machine_Learning_and_Deep_Learning_approaches_for_Neuroimaging_Data)
+  rather than the general author profile.
+- The previous public CV is preserved pending the author's choice of an existing
+  designed version. Updating the page must not regenerate or overwrite it.
 
 ## Publication and talk layout, 1 October 2026
 
