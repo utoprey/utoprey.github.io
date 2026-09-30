@@ -876,7 +876,7 @@ body {
 
 .research-row {
     display: grid;
-    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-columns: 280px minmax(0, 1fr);
     align-items: center;
     gap: 2rem;
     padding: 1.6rem 0;
@@ -891,7 +891,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    aspect-ratio: 8 / 5;
+    min-height: 150px;
     text-decoration: none;
     border-radius: 3px;
     overflow: hidden;
@@ -901,11 +901,13 @@ body {
 .research-media img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 220px;
     object-fit: contain;
 }
 
 .research-cover {
+    aspect-ratio: 8 / 5;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;

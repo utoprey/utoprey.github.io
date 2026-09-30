@@ -21,8 +21,9 @@ python _tools/build_profile.py --research-only
 This mode only requires Python with `beautifulsoup4`. Publications and talks,
 including their links and media, are maintained in `_data/profile.json`.
 `updated` records the CV/content audit date; `page_updated` records the page
-update date and versions the stylesheet. Keep `sitemap.xml` dates in sync with
-page updates.
+update date. `assets_version` versions the stylesheet, including multiple
+design revisions on the same day. Keep `sitemap.xml` dates in sync with page
+updates. Image dimensions are stored alongside each image URL.
 
 ## Publication and talk layout, 1 October 2026
 
@@ -32,12 +33,33 @@ page updates.
   Only NeuroTalk is labeled an invited talk; DataFest is a conference talk.
 - Added native expandable talk descriptions and compact resource links.
   Both language versions remain usable without JavaScript and on mobile.
-- Five WebP thumbnails in `img/publications/` are crops from the owner's
-  paper PDFs: TABS figure 1 (page 2), SynthOCT scanner diagram (page 4),
-  pyOpenNFT interface figure (page 4), CSTNet workflow (page 3), and
-  EEG-to-fMRI topomaps (page 5). Corresponding paper links are in the JSON.
-  Other records use typographic topic/venue covers. DataFest reuses its
-  existing talk image. No artwork from the design reference was copied.
+- Nine WebP thumbnails in `img/publications/` use original paper illustrations,
+  selected for clarity at preview size. Complete figures retain their labels,
+  legends and original colours. These are extracted or rendered images, with
+  no generated scientific content. Sources are listed below.
+- NeuroTalk uses the event's [official announcement image](https://t.me/itatmisis/1676).
+  DataFest reuses its existing talk image.
+- Three publications still have topic covers: the kidney-cancer paper has
+  tables but no figures in its public full text; the Artificial Sensations PDF
+  and the 2021 ventricular-assist paper PDF were not available locally or from
+  accessible publisher downloads. Do not substitute unrelated illustrations.
+
+### Publication thumbnail sources
+
+Paper URLs and authors are also stored in `_data/profile.json` and displayed
+beside their thumbnails. The images are resized and encoded as WebP.
+
+| Asset | Original illustration |
+| --- | --- |
+| `cardiac.webp` | Geometry-Aware Multi-View Cardiac MRI, figure 2, page 6: cine/LGE validation predictions; extracted from the author's PDF. |
+| `tabs.webp` | TABS, figure 3, page 7: ultrasound landmark predictions; extracted from the author's PDF. |
+| `oct.webp` | SynthOCT, figure 4, page 7: real, reconstructed and error maps; extracted from the author's PDF. |
+| `organoids.webp` | [iScience graphical abstract](https://ars.els-cdn.com/content/image/1-s2.0-S2589004226010898-fx1_lrg.jpg). |
+| `cstnet.webp` | CSTNet, figure 2, page 4: brain model and EEG/ECoG data generation; extracted from the author's PDF. |
+| `biomarkers.webp` | [Fluids and Barriers of the CNS, figure 7](https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12987-025-00731-z/MediaObjects/12987_2025_731_Fig7_HTML.png): hypoxic injury at the ChP–CSF interface. |
+| `pyopennft.webp` | pyOpenNFT, figure 1, page 4: neurofeedback interface; rendered from the author's PDF. |
+| `eegfmri.webp` | EEG-to-fMRI Prediction for Neurofeedback, figure 1, page 5: four EEG topomaps; rendered from the author's PDF. |
+| `pearson.webp` | [bioRxiv preprint](https://www.biorxiv.org/content/10.1101/2024.04.23.590747v1.full.pdf), figure 1, page 2: canonical-correlation preprocessing; extracted from the PDF. |
 
 ## Content audit, 12 September 2026
 

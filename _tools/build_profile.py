@@ -60,7 +60,8 @@ def research_media(row, lang, url):
     title = row['title']
     if row.get('image'):
         content = (f'<img src="{escape(row["image"], quote=True)}" alt="" '
-                   'loading="lazy" decoding="async" width="600" height="360">')
+                   f'loading="lazy" decoding="async" width="{row.get("image_width", 600)}" '
+                   f'height="{row.get("image_height", 360)}">')
         cls = 'research-media'
     else:
         cover = row['cover']
@@ -133,7 +134,7 @@ def render_research(s, lang):
             <details class="talk-abstract"><summary>{summary}</summary><p>{escape(row['description'][lang])}</p></details>
           </div></article>'''))
     s.select_one('.research-nav-btn[href="#research-talks"]').string = 'Talks' if lang == 'en' else 'Доклады'
-    s.select_one('link[rel="stylesheet"][href^="/assets/site.css"]')['href'] = '/assets/site.css?v=' + DATA['page_updated']
+    s.select_one('link[rel="stylesheet"][href^="/assets/site.css"]')['href'] = '/assets/site.css?v=' + DATA.get('assets_version', DATA['page_updated'])
     schema_node = s.find('script', type='application/ld+json')
     schema = json.loads(schema_node.string)
     schema['dateModified'] = DATA['page_updated']

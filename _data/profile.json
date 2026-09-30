@@ -353,10 +353,9 @@
       "year": 2026,
       "status": "accepted",
       "url": "https://openreview.net/forum?id=8fgjDHh6FH",
-      "cover": {
-        "topic": "Cardiac MRI",
-        "venue": "MICCAI · MWM"
-      }
+      "image": "/img/publications/cardiac.webp?v=2026-10-01-figures",
+      "image_width": 1100,
+      "image_height": 721
     },
     {
       "id": "tabs",
@@ -366,7 +365,9 @@
       "year": 2026,
       "status": "accepted",
       "url": "https://openreview.net/forum?id=5IcejzMtsU",
-      "image": "/img/publications/tabs.webp"
+      "image": "/img/publications/tabs.webp?v=2026-10-01-figures",
+      "image_width": 1100,
+      "image_height": 632
     },
     {
       "id": "oct",
@@ -376,7 +377,9 @@
       "year": 2026,
       "status": "accepted",
       "url": "https://openreview.net/forum?id=eT8xnrF58D",
-      "image": "/img/publications/oct.webp"
+      "image": "/img/publications/oct.webp?v=2026-10-01-figures",
+      "image_width": 1100,
+      "image_height": 480
     },
     {
       "id": "organoids",
@@ -386,10 +389,9 @@
       "year": 2026,
       "status": "published",
       "url": "https://doi.org/10.1016/j.isci.2026.115714",
-      "cover": {
-        "topic": "Brain organoids",
-        "venue": "iScience"
-      }
+      "image": "/img/publications/organoids.webp?v=2026-10-01-figures",
+      "image_width": 996,
+      "image_height": 996
     },
     {
       "id": "cstnet",
@@ -399,13 +401,15 @@
       "year": 2026,
       "status": "published",
       "url": "https://doi.org/10.1007/978-3-032-13961-0_16",
-      "image": "/img/publications/cstnet.webp",
+      "image": "/img/publications/cstnet.webp?v=2026-10-01-figures",
       "links": [
         {
           "label": "Code",
           "url": "https://github.com/RuslanKalimullin/CSTNet"
         }
-      ]
+      ],
+      "image_width": 1100,
+      "image_height": 821
     },
     {
       "id": "biomarkers",
@@ -415,10 +419,9 @@
       "year": 2025,
       "status": "published",
       "url": "https://doi.org/10.1186/s12987-025-00731-z",
-      "cover": {
-        "topic": "Molecular biomarkers",
-        "venue": "Fluids & Barriers of the CNS"
-      }
+      "image": "/img/publications/biomarkers.webp?v=2026-10-01-figures",
+      "image_width": 1100,
+      "image_height": 501
     },
     {
       "id": "pyopennft",
@@ -434,7 +437,9 @@
           "label": "Code",
           "url": "https://github.com/OpenNFT/pyOpenNFT"
         }
-      ]
+      ],
+      "image_width": 848,
+      "image_height": 462
     },
     {
       "id": "kidney",
@@ -483,7 +488,9 @@
       "year": 2025,
       "status": "preprint",
       "url": "https://doi.org/10.1101/2025.05.20.654907",
-      "image": "/img/publications/eegfmri.webp"
+      "image": "/img/publications/eegfmri.webp",
+      "image_width": 1030,
+      "image_height": 910
     },
     {
       "id": "pearson",
@@ -493,10 +500,9 @@
       "year": 2024,
       "status": "preprint",
       "url": "https://doi.org/10.1101/2024.04.23.590747",
-      "cover": {
-        "topic": "Functional connectivity",
-        "venue": "bioRxiv"
-      }
+      "image": "/img/publications/pearson.webp?v=2026-10-01-figures",
+      "image_width": 960,
+      "image_height": 540
     }
   ],
   "posters": [
@@ -549,10 +555,9 @@
           "url": "https://t.me/itatmisis/1676"
         }
       ],
-      "cover": {
-        "topic": "NeuroTalk",
-        "venue": "Neural representation learning"
-      }
+      "image": "/img/neurotalk.webp",
+      "image_width": 800,
+      "image_height": 450
     },
     {
       "id": "datafest",
@@ -584,5 +589,6 @@
       "image": "/img/ods_talk.png"
     }
   ],
-  "page_updated": "2026-10-01"
+  "page_updated": "2026-10-01",
+  "assets_version": "2026-10-01-figures"
 }
