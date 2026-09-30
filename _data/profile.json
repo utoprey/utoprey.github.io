@@ -352,7 +352,11 @@
       "venue": "1st MICCAI Workshop on Medical World Models",
       "year": 2026,
       "status": "accepted",
-      "url": "https://openreview.net/forum?id=8fgjDHh6FH"
+      "url": "https://openreview.net/forum?id=8fgjDHh6FH",
+      "cover": {
+        "topic": "Cardiac MRI",
+        "venue": "MICCAI · MWM"
+      }
     },
     {
       "id": "tabs",
@@ -361,7 +365,8 @@
       "venue": "1st MICCAI Workshop on Medical World Models",
       "year": 2026,
       "status": "accepted",
-      "url": "https://openreview.net/forum?id=5IcejzMtsU"
+      "url": "https://openreview.net/forum?id=5IcejzMtsU",
+      "image": "/img/publications/tabs.webp"
     },
     {
       "id": "oct",
@@ -370,7 +375,8 @@
       "venue": "SynthOCT Challenge, MICCAI",
       "year": 2026,
       "status": "accepted",
-      "url": "https://openreview.net/forum?id=eT8xnrF58D"
+      "url": "https://openreview.net/forum?id=eT8xnrF58D",
+      "image": "/img/publications/oct.webp"
     },
     {
       "id": "organoids",
@@ -379,7 +385,11 @@
       "venue": "iScience 29(5), 115714",
       "year": 2026,
       "status": "published",
-      "url": "https://doi.org/10.1016/j.isci.2026.115714"
+      "url": "https://doi.org/10.1016/j.isci.2026.115714",
+      "cover": {
+        "topic": "Brain organoids",
+        "venue": "iScience"
+      }
     },
     {
       "id": "cstnet",
@@ -388,7 +398,14 @@
       "venue": "EMA4MICCAI 2025, Springer, pp. 154–162",
       "year": 2026,
       "status": "published",
-      "url": "https://doi.org/10.1007/978-3-032-13961-0_16"
+      "url": "https://doi.org/10.1007/978-3-032-13961-0_16",
+      "image": "/img/publications/cstnet.webp",
+      "links": [
+        {
+          "label": "Code",
+          "url": "https://github.com/RuslanKalimullin/CSTNet"
+        }
+      ]
     },
     {
       "id": "biomarkers",
@@ -397,7 +414,11 @@
       "venue": "Fluids and Barriers of the CNS 22, 117",
       "year": 2025,
       "status": "published",
-      "url": "https://doi.org/10.1186/s12987-025-00731-z"
+      "url": "https://doi.org/10.1186/s12987-025-00731-z",
+      "cover": {
+        "topic": "Molecular biomarkers",
+        "venue": "Fluids & Barriers of the CNS"
+      }
     },
     {
       "id": "pyopennft",
@@ -406,7 +427,14 @@
       "venue": "MICCAI 2025, Springer",
       "year": 2025,
       "status": "published",
-      "url": "https://doi.org/10.1007/978-3-032-05162-2_55"
+      "url": "https://doi.org/10.1007/978-3-032-05162-2_55",
+      "image": "/img/publications/pyopennft.webp",
+      "links": [
+        {
+          "label": "Code",
+          "url": "https://github.com/OpenNFT/pyOpenNFT"
+        }
+      ]
     },
     {
       "id": "kidney",
@@ -415,7 +443,11 @@
       "venue": "BIO Web of Conferences 100, 01009",
       "year": 2024,
       "status": "published",
-      "url": "https://doi.org/10.1051/bioconf/202410001009"
+      "url": "https://doi.org/10.1051/bioconf/202410001009",
+      "cover": {
+        "topic": "Interpretable medical AI",
+        "venue": "BIO Web of Conferences"
+      }
     },
     {
       "id": "sensations",
@@ -424,7 +456,11 @@
       "venue": "IEEE Ural-Siberian Conference on Computational Technologies in Cognitive Science, Genomics and Biomedicine (CSGB)",
       "year": 2023,
       "status": "published",
-      "url": "https://doi.org/10.1109/CSGB60362.2023.10329845"
+      "url": "https://doi.org/10.1109/CSGB60362.2023.10329845",
+      "cover": {
+        "topic": "Artificial sensations",
+        "venue": "IEEE · CSGB"
+      }
     },
     {
       "id": "ventricular",
@@ -433,7 +469,11 @@
       "venue": "Conference paper",
       "year": 2021,
       "status": "published",
-      "url": "https://www.researchgate.net/publication/387017833_LEFT_VENTRICULARASSIST_DEVICES_IN_THE_MANAGEMENT_OF_END-STAGE_HEART_FAILURE"
+      "url": "https://www.researchgate.net/publication/387017833_LEFT_VENTRICULARASSIST_DEVICES_IN_THE_MANAGEMENT_OF_END-STAGE_HEART_FAILURE",
+      "cover": {
+        "topic": "Biomedical engineering",
+        "venue": "Conference paper"
+      }
     },
     {
       "id": "eegfmri",
@@ -442,7 +482,8 @@
       "venue": "bioRxiv",
       "year": 2025,
       "status": "preprint",
-      "url": "https://doi.org/10.1101/2025.05.20.654907"
+      "url": "https://doi.org/10.1101/2025.05.20.654907",
+      "image": "/img/publications/eegfmri.webp"
     },
     {
       "id": "pearson",
@@ -451,7 +492,11 @@
       "venue": "bioRxiv",
       "year": 2024,
       "status": "preprint",
-      "url": "https://doi.org/10.1101/2024.04.23.590747"
+      "url": "https://doi.org/10.1101/2024.04.23.590747",
+      "cover": {
+        "topic": "Functional connectivity",
+        "venue": "bioRxiv"
+      }
     }
   ],
   "posters": [
@@ -479,5 +524,65 @@
       "year": 2023,
       "url": "https://www.researchgate.net/profile/Ekaterina-Antipushina"
     }
-  ]
+  ],
+  "talks": [
+    {
+      "id": "neurotalk",
+      "title": "Universal Brain Encoder: The Evolution of Models for Neural Signals",
+      "venue": {
+        "en": "NeuroTalk Meetup · MISIS University, Moscow",
+        "ru": "NeuroTalk · НИТУ МИСИС, Москва"
+      },
+      "date": "2026-04",
+      "date_label": {
+        "en": "April 2026",
+        "ru": "Апрель 2026"
+      },
+      "invited": true,
+      "description": {
+        "en": "An invited talk at the NeuroTalk meetup on neurotechnology and brain-computer interfaces. The talk traces how models for neural signals evolved from task-specific architectures towards universal brain encoders — foundation models trained across subjects, montages and recording modalities — and what this shift means for decoding and for brain-computer interfaces.",
+        "ru": "Приглашенный доклад на митапе NeuroTalk о нейротехнологиях и нейроинтерфейсах. Эволюция моделей нейросигналов от архитектур для отдельных задач к универсальным моделям, обученным на данных разных участников, конфигураций электродов и модальностей, и значение этого перехода для декодирования нейросигналов."
+      },
+      "links": [
+        {
+          "label": "Event",
+          "url": "https://t.me/itatmisis/1676"
+        }
+      ],
+      "cover": {
+        "topic": "NeuroTalk",
+        "venue": "Neural representation learning"
+      }
+    },
+    {
+      "id": "datafest",
+      "title": "Bridge Between Time and Space: How Generative AI Turns EEG into fMRI",
+      "venue": {
+        "en": "DataFest · Open Data Science",
+        "ru": "DataFest · Open Data Science"
+      },
+      "date": "2025-03",
+      "date_label": {
+        "en": "March 2025",
+        "ru": "Март 2025"
+      },
+      "invited": false,
+      "description": {
+        "en": "The report is devoted to the application of generative models for the transformation of neuroimaging data with high temporal resolution (EEG) into functional and spatial representations (fMRI), combining their strengths. Modern algorithms, architectural solutions and examples of use in diagnostics and brain research are considered",
+        "ru": "Доклад о применении генеративных моделей для предсказания функциональных и пространственных представлений фМРТ по ЭЭГ с высоким временным разрешением. Рассматриваются алгоритмы, архитектуры и примеры применения в исследованиях мозга."
+      },
+      "links": [
+        {
+          "label": "Recording",
+          "url": "https://ods.ai/tracks/df25-med-data/blocks/a05f3536-aa89-4535-9ac4-1514a791a00a"
+        },
+        {
+          "label": "Slides",
+          "url": "https://storage.yandexcloud.net/ds-ods/files/content/2025/07/02/4b09cb1bb81a/Екатерина%20Антипушина.pdf"
+        }
+      ],
+      "image": "/img/ods_talk.png"
+    }
+  ],
+  "page_updated": "2026-10-01"
 }

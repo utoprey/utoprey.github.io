@@ -3,6 +3,7 @@
 Run with Python (beautifulsoup4) and XeLaTeX installed. Generated HTML and PDF
 are committed so GitHub Pages needs no custom build configuration.
 """
+import argparse
 import json
 import subprocess
 import tempfile
@@ -48,6 +49,110 @@ def fragment(html):
     return BeautifulSoup(html, 'html.parser')
 
 
+def resource_link(url, label, lang):
+    labels = {'Paper': 'Статья', 'Code': 'Код', 'Event': 'Анонс',
+              'Slides': 'Слайды', 'Recording': 'Запись'}
+    return a(url, labels.get(label, label) if lang == 'ru' else label, 'research-link')
+
+
+def research_media(row, lang, url):
+    """Use the author's paper figure, or an honest typographic cover."""
+    title = row['title']
+    if row.get('image'):
+        content = (f'<img src="{escape(row["image"], quote=True)}" alt="" '
+                   'loading="lazy" decoding="async" width="600" height="360">')
+        cls = 'research-media'
+    else:
+        cover = row['cover']
+        year = row.get('year', row.get('date', '')[:4])
+        content = (f'<span class="cover-venue">{escape(cover["venue"])}</span>'
+                   f'<span class="cover-topic">{escape(cover["topic"])}</span>'
+                   f'<span class="cover-year">{year}</span>')
+        cls = 'research-media research-cover'
+    label = ('Открыть: ' if lang == 'ru' else 'Open: ') + title
+    return (f'<a class="{cls}" href="{escape(url, quote=True)}" '
+            f'aria-label="{escape(label, quote=True)}" target="_blank" '
+            f'rel="noopener noreferrer">{content}</a>')
+
+
+def render_research(s, lang):
+    papers = s.select_one('#research-papers')
+    papers['class'] = ['research-section', 'research-list']
+    papers.clear()
+    title = 'Publications' if lang == 'en' else 'Публикации'
+    intro = ('Journal and conference papers, accepted work, and preprints.' if lang == 'en'
+             else 'Журнальные статьи, материалы конференций, принятые работы и препринты.')
+    cv = '/experience/EkaterinaAntipushinaCV.pdf?v=' + DATA['updated']
+    papers.append(fragment(f'<h3 class="section-title">{title}</h3><p class="publications-intro">{intro}</p>'
+                           '<div class="research-resources">' +
+                           a('https://scholar.google.com/citations?user=7VOBHhMAAAAJ', 'Google Scholar', 'research-link') +
+                           a(cv, 'CV · PDF', 'research-link') + '</div>'))
+    for year in sorted({p['year'] for p in DATA['publications']}, reverse=True):
+        group = fragment(f'<section class="publication-year" aria-labelledby="papers-{year}">'
+                         f'<h4 class="publication-group-title" id="papers-{year}">{year}</h4>'
+                         '<div class="publication-list"></div></section>')
+        for row in (p for p in DATA['publications'] if p['year'] == year):
+            authors = escape(row['authors']).replace('Antipushina E.', '<strong>Antipushina E.</strong>')
+            venue = row['venue']
+            if lang == 'ru' and venue == 'Conference paper':
+                venue = 'Материалы конференции'
+            status = ''
+            if row['status'] != 'published':
+                text = {'accepted': ('Accepted', 'Принято'), 'preprint': ('Preprint', 'Препринт')}[row['status']][lang == 'ru']
+                status = f'<span class="pub-status">{text}</span>'
+            main_label = 'OpenReview' if 'openreview.net' in row['url'] else 'Paper'
+            links = resource_link(row['url'], main_label, lang)
+            links += ''.join(resource_link(l['url'], l['label'], lang) for l in row.get('links', []))
+            group.select_one('.publication-list').append(fragment(f'''<article class="publication-item research-row" id="paper-{row['id']}">
+              {research_media(row, lang, row['url'])}
+              <div class="research-row-content">
+                <h5 class="pub-title">{a(row['url'], row['title'])}</h5>
+                <p class="pub-authors">{authors}</p>
+                <p class="pub-venue"><cite>{escape(venue)}</cite>, {row['year']} {status}</p>
+                <div class="research-resources">{links}</div>
+              </div></article>'''))
+        papers.append(group)
+
+    talks = s.select_one('#research-talks')
+    talks['class'] = ['research-section', 'research-list']
+    talks.clear()
+    heading = 'Invited talks & presentations' if lang == 'en' else 'Приглашённые доклады и выступления'
+    talks.append(fragment(f'<h3 class="section-title">{escape(heading)}</h3>'))
+    for row in DATA['talks']:
+        label = ('Invited talk' if lang == 'en' else 'Приглашённый доклад') if row['invited'] else ('Conference talk' if lang == 'en' else 'Доклад на конференции')
+        links = ''.join(resource_link(l['url'], l['label'], lang) for l in row['links'])
+        summary = 'About the talk' if lang == 'en' else 'О докладе'
+        talks.append(fragment(f'''<article class="talk-item research-row" id="talk-{row['id']}">
+          {research_media(row, lang, row['links'][0]['url'])}
+          <div class="research-row-content">
+            <p class="talk-kind">{label}</p>
+            <h4 class="talk-title">{a(row['links'][0]['url'], row['title'])}</h4>
+            <p class="talk-venue">{escape(row['venue'][lang])}</p>
+            <p class="talk-date"><time datetime="{row['date']}">{row['date_label'][lang]}</time></p>
+            <div class="research-resources">{links}</div>
+            <details class="talk-abstract"><summary>{summary}</summary><p>{escape(row['description'][lang])}</p></details>
+          </div></article>'''))
+    s.select_one('.research-nav-btn[href="#research-talks"]').string = 'Talks' if lang == 'en' else 'Доклады'
+    s.select_one('link[rel="stylesheet"][href^="/assets/site.css"]')['href'] = '/assets/site.css?v=' + DATA['page_updated']
+    schema_node = s.find('script', type='application/ld+json')
+    schema = json.loads(schema_node.string)
+    schema['dateModified'] = DATA['page_updated']
+    schema_node.string = '\n' + json.dumps(schema, ensure_ascii=False, indent=2) + '\n'
+    # Keep punctuation next to inline author names and venue citations.
+    for tag in s.select('.pub-authors, .pub-venue'):
+        tag.preserve_whitespace_tags = {'p'}
+
+
+def render_research_pages():
+    for lang, file in [('en', ROOT / 'index.html'), ('ru', ROOT / 'ru/index.html')]:
+        s = BeautifulSoup(file.read_text(), 'html.parser')
+        render_research(s, lang)
+        for tag in s.find_all('svg'):
+            if 'viewbox' in tag.attrs:
+                tag['viewBox'] = tag.attrs.pop('viewbox')
+        file.write_text(s.prettify())
+
+
 def render_pages():
     for lang, file in [('en', ROOT / 'index.html'), ('ru', ROOT / 'ru/index.html')]:
         s = BeautifulSoup(file.read_text(), 'html.parser')
@@ -73,27 +178,7 @@ def render_pages():
                 <div class="tech-stack">{''.join(f'<span class="tech-tag">{escape(t)}</span>' for t in row['tags'])}</div>
                 {link}
               </div></div>'''))
-        papers = s.select_one('#research-papers')
-        heading = papers.select_one('h3').extract()
-        papers.clear()
-        papers.append(heading)
-        papers.append(fragment(f'<p class="publications-intro">{escape(labels["intro"])}<br>'
-                              f'{a("https://scholar.google.com/citations?user=7VOBHhMAAAAJ", labels["scholar"])} · '
-                              f'{a("https://www.researchgate.net/profile/Ekaterina-Antipushina", labels["rg"])}</p>'))
-        for status in ['accepted', 'published', 'preprint']:
-            papers.append(fragment(f'<h4 class="publication-group-title">{labels[status]}</h4>'))
-            for row in DATA['publications']:
-                if row['status'] != status:
-                    continue
-                venue = row['venue']
-                if lang == 'ru' and venue == 'Conference paper':
-                    venue = 'Материалы конференции'
-                papers.append(fragment(f'''<div class="publication-item fade-in" id="paper-{row['id']}">
-                  <div class="pub-title">{a(row['url'], row['title'])}</div>
-                  <div class="pub-authors">{escape(row['authors'])}</div>
-                  <div class="pub-venue">{escape(venue)} · {row['year']}</div>
-                  <div class="pub-note">{labels['status'][status]}</div>
-                </div>'''))
+        render_research(s, lang)
         # Preserve the two existing poster thumbnails and add the missing records.
         poster_grid = s.select_one('.posters-grid')
         for card in poster_grid.select('[data-profile-poster]'):
@@ -114,7 +199,7 @@ def render_pages():
         footer.append(fragment(f'<p class="profile-updated">{labels["updated"]}</p>'))
         schema_node = s.find('script', type='application/ld+json')
         schema = json.loads(schema_node.string)
-        schema['dateModified'] = DATA['updated']
+        schema['dateModified'] = DATA.get('page_updated', DATA['updated'])
         schema_node.string = '\n' + json.dumps(schema, ensure_ascii=False, indent=2) + '\n'
         for tag in s.find_all('svg'):
             if 'viewbox' in tag.attrs:
@@ -216,6 +301,13 @@ Researcher and machine-learning engineer working on multimodal learning for neur
 
 
 if __name__ == '__main__':
-    render_pages()
-    render_cv()
-    print('Updated English and Russian profiles and academic CV.')
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--research-only', action='store_true', help='Render publication and talk sections without rebuilding the CV.')
+    args = parser.parse_args()
+    if args.research_only:
+        render_research_pages()
+        print('Updated English and Russian publications and talks.')
+    else:
+        render_pages()
+        render_cv()
+        print('Updated English and Russian profiles and academic CV.')

@@ -7,10 +7,37 @@ python _tools/build_profile.py
 ```
 
 Requires Python with `beautifulsoup4`, XeLaTeX, and Arial. The command refreshes
-the English and Russian timeline, project and publication sections, generates
+the English and Russian timeline, project, publication and talk sections, generates
 `_cv/academic.tex`, and compiles `experience/EkaterinaAntipushinaCV.pdf`.
 The generated HTML and PDF are committed; GitHub Pages serves them directly.
-The rest of the bilingual biography and the talks remain in the HTML pages.
+The rest of the bilingual biography remains in the HTML pages.
+
+To update just publications and talks without rebuilding the CV, run:
+
+```sh
+python _tools/build_profile.py --research-only
+```
+
+This mode only requires Python with `beautifulsoup4`. Publications and talks,
+including their links and media, are maintained in `_data/profile.json`.
+`updated` records the CV/content audit date; `page_updated` records the page
+update date and versions the stylesheet. Keep `sitemap.xml` dates in sync with
+page updates.
+
+## Publication and talk layout, 1 October 2026
+
+- Replaced large cards with illustrated rows, grouped publications by year,
+  and highlighted the profile owner's name in author lists.
+- Preserved all 12 publication records, their statuses, and both talks.
+  Only NeuroTalk is labeled an invited talk; DataFest is a conference talk.
+- Added native expandable talk descriptions and compact resource links.
+  Both language versions remain usable without JavaScript and on mobile.
+- Five WebP thumbnails in `img/publications/` are crops from the owner's
+  paper PDFs: TABS figure 1 (page 2), SynthOCT scanner diagram (page 4),
+  pyOpenNFT interface figure (page 4), CSTNet workflow (page 3), and
+  EEG-to-fMRI topomaps (page 5). Corresponding paper links are in the JSON.
+  Other records use typographic topic/venue covers. DataFest reuses its
+  existing talk image. No artwork from the design reference was copied.
 
 ## Content audit, 12 September 2026
 

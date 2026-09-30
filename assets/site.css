@@ -653,12 +653,6 @@ body {
     color: var(--text-gray);
 }
 
-.publication-group-title {
-    color: var(--text-dark);
-    font-size: 1.2rem;
-    margin: 2.5rem 0 1rem;
-}
-
 .profile-updated {
     color: var(--text-gray);
     font-size: 0.85rem;
@@ -691,54 +685,6 @@ body {
 }
 
 .poster-link:hover {
-    color: var(--text-dark);
-}
-
-/* Talks grid */
-.talks-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.talk-card {
-    background: var(--soft-white);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    border: 1px solid var(--border-light);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.talk-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-medium);
-}
-
-.talk-content {
-    padding: 1.5rem;
-}
-
-.talk-venue {
-    color: var(--text-gray);
-    font-style: italic;
-    margin-bottom: 0.5rem;
-}
-
-.talk-description {
-    color: var(--text-gray);
-    margin-bottom: 1rem;
-}
-
-.talk-link {
-    color: var(--coral);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.talk-link:hover {
     color: var(--text-dark);
 }
 
@@ -890,52 +836,130 @@ body {
     transform: translateY(-2px);
 }
 
-/* Publication items */
-.publication-item {
-    background: var(--soft-white);
-    border-radius: 20px;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--shadow-soft);
-    border: 1px solid var(--border-light);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    border-left: 5px solid var(--coral);
+/* Academic publication and talk lists, inspired by the supplied reference. */
+.research-list {
+    --research-accent: #a34576;
+    --research-rule: #e4dce2;
 }
 
-.publication-item:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-medium);
+.research-list .section-title {
+    color: var(--research-accent);
+    font-size: clamp(1.65rem, 3vw, 2rem);
+    margin-bottom: .65rem;
+    line-height: 1.3;
 }
 
-.pub-title {
-    font-size: 1.2rem;
+.research-list .section-title::after { display: none; }
+
+.research-list .publications-intro {
+    text-align: left;
+    margin-bottom: .45rem;
+    max-width: 700px;
+}
+
+.publication-group-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.2rem 0 .25rem;
+    color: var(--research-accent);
+    font-size: 1.15rem;
     font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
 }
 
-.pub-authors {
-    color: var(--text-gray);
-    margin-bottom: 0.5rem;
+.publication-group-title::after {
+    content: '';
+    height: 1px;
+    flex: 1;
+    background: var(--research-rule);
 }
 
-.pub-venue {
-    color: var(--text-gray);
-    font-style: italic;
-    margin-bottom: 1rem;
+.research-row {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    align-items: center;
+    gap: 2rem;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--research-rule);
 }
 
-.pub-note {
-    background: linear-gradient(135deg, var(--coral) 0%, var(--lavender-dark) 100%);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    display: inline-block;
-    font-weight: 500;
-    margin-top: 0.5rem;
+.publication-list .research-row:last-child { border-bottom: 0; }
+.research-row-content { min-width: 0; }
+
+.research-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 8 / 5;
+    text-decoration: none;
+    border-radius: 3px;
+    overflow: hidden;
+    background: white;
+}
+
+.research-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.research-cover {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem 1.15rem;
+    color: #78536d;
+    background: #f3edf3;
+    line-height: 1.3;
+}
+
+.cover-venue { font-size: .72rem; letter-spacing: .03em; }
+.cover-topic { font-size: 1.15rem; font-weight: 500; }
+.cover-year { font-size: .8rem; font-variant-numeric: tabular-nums; }
+
+.pub-title, .talk-title {
+    font-size: 1.12rem;
+    font-weight: 600;
+    line-height: 1.45;
+    margin: 0 0 .4rem;
+}
+
+.research-list .paper-link { color: #383038; text-decoration: none; }
+.research-list .paper-link:hover { color: var(--research-accent); text-decoration: underline; text-underline-offset: 3px; }
+
+.pub-authors { color: var(--text-gray); font-size: .95rem; margin-bottom: .35rem; }
+.pub-authors strong { color: #383038; font-weight: 600; }
+.pub-venue, .talk-venue { color: var(--text-gray); font-size: .95rem; margin-bottom: .3rem; }
+.pub-venue cite { font-style: italic; }
+.pub-status { color: var(--research-accent); font-size: .85rem; font-weight: 500; white-space: nowrap; }
+.pub-status::before { content: ' · '; }
+
+.research-resources { display: flex; flex-wrap: wrap; gap: .3rem 1rem; }
+.research-link { color: var(--research-accent); font-size: .9rem; text-decoration: none; white-space: nowrap; }
+.research-link::before { content: '['; }
+.research-link::after { content: ']'; }
+.research-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.talk-kind { color: var(--research-accent); font-size: .78rem; font-weight: 600; margin-bottom: .25rem; }
+.talk-date { color: var(--text-gray); font-size: .9rem; margin-bottom: .35rem; }
+.talk-abstract { margin-top: .6rem; color: var(--text-gray); font-size: .9rem; }
+.talk-abstract summary { cursor: pointer; width: fit-content; }
+.talk-abstract summary:hover { color: var(--research-accent); }
+.talk-abstract p { margin-top: .6rem; }
+
+@media (max-width: 800px) {
+    .research-row { grid-template-columns: 190px minmax(0, 1fr); gap: 1.3rem; }
+    .cover-topic { font-size: 1rem; }
+}
+
+@media (max-width: 600px) {
+    .research-row { grid-template-columns: minmax(0, 1fr); gap: 1rem; padding: 1.4rem 0; }
+    .research-media { max-width: 280px; }
+    .research-cover { max-width: 220px; aspect-ratio: 2 / 1; }
+    .cover-topic { margin: .35rem 0; }
+    .pub-title, .talk-title { font-size: 1.08rem; }
 }
 
 /* Contact section */
