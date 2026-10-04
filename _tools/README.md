@@ -64,7 +64,9 @@ uses the Scholar Author API with the configured author ID and bounded pagination
 No provider account or paid plan is created by this project. API quota and access
 remain dependent on the key's provider plan. The public profile adapter succeeded
 locally during setup on 4 October 2026; an earlier request was blocked. Consult
-the latest workflow summary for current status from the Actions runner.
+the latest workflow summary for current status from the Actions runner. The
+first hosted run returned HTTP 403 for Scholar; configure `SERPAPI_KEY` to
+enable the provider adapter from GitHub Actions. GitHub discovery remains active.
 
 References: [GitHub public repositories API](https://docs.github.com/en/rest/repos/repos#list-repositories-for-a-user),
 [Scholar robots rules](https://scholar.google.com/robots.txt),
