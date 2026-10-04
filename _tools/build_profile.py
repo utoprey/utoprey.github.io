@@ -8,6 +8,7 @@ import json
 import re
 import subprocess
 import tempfile
+import unicodedata
 from html import escape
 from pathlib import Path
 
@@ -15,6 +16,23 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / '_data/profile.json').read_text())
+AUTO_FILE = ROOT / '_data/auto-profile.json'
+AUTO = json.loads(AUTO_FILE.read_text()) if AUTO_FILE.exists() else {'projects': [], 'publications': []}
+
+
+def title_key(value):
+    return ''.join(c for c in unicodedata.normalize('NFKC', value).lower() if c.isalnum())
+
+
+def page_updated():
+    return max(DATA['page_updated'], AUTO.get('content_updated', DATA['page_updated']))
+
+
+def updated_label(lang):
+    year, month, day = page_updated().split('-')
+    return f'Profile updated {year}-{month}-{day}' if lang == 'en' else f'Профиль обновлён {day}.{month}.{year}'
+
+
 LABELS = {
     'en': {
         'accepted': 'Accepted papers · 2026',
@@ -115,6 +133,7 @@ def render_research(s, lang):
                 <div class="research-resources">{links}</div>
               </div></article>'''))
         papers.append(group)
+    render_auto_publications(papers, lang)
 
     talks = s.select_one('#research-talks')
     talks['class'] = ['research-section', 'research-list']
@@ -140,7 +159,7 @@ def render_research(s, lang):
     s.select_one('link[rel="stylesheet"][href^="/assets/site.css"]')['href'] = '/assets/site.css?v=' + DATA.get('assets_version', DATA['page_updated'])
     schema_node = s.find('script', type='application/ld+json')
     schema = json.loads(schema_node.string)
-    schema['dateModified'] = DATA['page_updated']
+    schema['dateModified'] = page_updated()
     schema_node.string = '\n' + json.dumps(schema, ensure_ascii=False, indent=2) + '\n'
     # Keep punctuation next to inline author names and venue citations.
     for tag in s.select('.pub-authors, .pub-venue'):
@@ -154,6 +173,49 @@ def render_research(s, lang):
         tag.clear()
         tag.append(fragment(markup))
         tag.preserve_whitespace_tags = {'p'}
+
+
+def render_auto_publications(section, lang):
+    known = {title_key(row['title']) for row in DATA['publications'] + DATA['posters']}
+    rows = [row for row in AUTO['publications'] if title_key(row['title']) not in known]
+    if not rows:
+        return
+    heading = 'More from Google Scholar' if lang == 'en' else 'Новые работы из Google Scholar'
+    intro = ('Bibliographic records from my Scholar profile. Titles and author lists follow the source.' if lang == 'en'
+             else 'Библиографические записи из моего профиля Scholar. Названия и списки авторов приведены по источнику.')
+    group = fragment(f'<section class="auto-publications" aria-labelledby="scholar-updates"><h4 class="publication-group-title" id="scholar-updates">{heading}</h4><p class="auto-intro">{intro}</p><div class="auto-publication-list"></div></section>')
+    for row in rows:
+        venue = escape(row['venue'])
+        # Scholar does not verify peer-review/acceptance status. Do not invent it.
+        year = str(row['year']) if row['year'] else ('Year not listed' if lang == 'en' else 'Год не указан')
+        group.select_one('.auto-publication-list').append(fragment(f'''<article class="auto-publication" id="{escape(row['id'], quote=True)}">
+          <h5 class="pub-title">{a(row['url'], row['title'])}</h5>
+          <p class="pub-authors">{escape(row['authors'])}</p>
+          <p class="pub-venue">{venue} <span class="auto-year">{year}</span></p>
+          {a(row['url'], 'Google Scholar', 'research-link')}
+        </article>'''))
+    section.append(group)
+
+
+def render_auto_projects(s, lang):
+    for node in s.select('#github-updates-section'):
+        node.decompose()
+    known = {title_key(value) for row in DATA['projects'] for value in [row['id'], row['title']['en'], row['title']['ru']]}
+    urls = {row['url'].rstrip('/').lower() for row in DATA['projects']}
+    rows = [row for row in AUTO['projects'] if title_key(row['name']) not in known and row['url'].rstrip('/').lower() not in urls]
+    if not rows:
+        return
+    heading = 'New GitHub projects' if lang == 'en' else 'Новые проекты на GitHub'
+    group = fragment(f'<section id="github-updates-section" class="auto-projects" aria-labelledby="github-updates"><h4 class="publication-group-title" id="github-updates">{heading}</h4><div class="projects-grid auto-projects-grid"></div></section>')
+    for row in rows:
+        description = row['description'] or ('Public code repository.' if lang == 'en' else 'Публичный репозиторий с кодом.')
+        group.select_one('.projects-grid').append(fragment(f'''<article class="project-card" id="{escape(row['id'], quote=True)}">
+          <div class="project-header"><h5 class="project-title">{escape(row['name'])}</h5></div>
+          <div class="project-content"><p class="project-description">{escape(description)}</p>
+          <div class="tech-stack">{''.join(f'<span class="tech-tag">{escape(tag)}</span>' for tag in row['tags'])}</div>
+          <p class="project-kicker">{a(row['url'], 'GitHub')}</p></div>
+        </article>'''))
+    s.select_one('#research-projects').append(group)
 
 
 def render_posters(s, lang):
@@ -198,7 +260,7 @@ def render_pages():
                 for key, cls in [('title', 'exp-title'), ('company', 'exp-company'),
                                  ('period', 'exp-duration'), ('description', 'exp-description')]
             ) + '</div>'))
-        grid = s.select_one('.projects-grid')
+        grid = s.select_one('#research-projects > .projects-grid')
         grid.clear()
         for row in DATA['projects']:
             link = f'<p class="project-kicker">{a(row["url"], row["link"][lang])}</p>' if row['url'] else ''
@@ -211,6 +273,7 @@ def render_pages():
                 <div class="tech-stack">{''.join(f'<span class="tech-tag">{escape(t)}</span>' for t in row['tags'])}</div>
                 {link}
               </div></div>'''))
+        render_auto_projects(s, lang)
         render_research(s, lang)
         s.select_one('.cv-link .download-btn').string = labels['cv']
         for link in s.select('a[href]'):
@@ -220,10 +283,10 @@ def render_pages():
         for old in s.select('.profile-updated'):
             old.decompose()
         footer = s.find('footer')
-        footer.append(fragment(f'<p class="profile-updated">{labels["updated"]}</p>'))
+        footer.append(fragment(f'<p class="profile-updated">{updated_label(lang)}</p>'))
         schema_node = s.find('script', type='application/ld+json')
         schema = json.loads(schema_node.string)
-        schema['dateModified'] = DATA.get('page_updated', DATA['updated'])
+        schema['dateModified'] = page_updated()
         schema_node.string = '\n' + json.dumps(schema, ensure_ascii=False, indent=2) + '\n'
         for tag in s.find_all('svg'):
             if 'viewbox' in tag.attrs:
@@ -232,6 +295,8 @@ def render_pages():
             if link['href'] == 'https://opennft.org/':
                 link['href'] = 'https://github.com/OpenNFT/pyOpenNFT'
         file.write_text(s.prettify())
+    sitemap = ROOT / 'sitemap.xml'
+    sitemap.write_text(re.sub(r'<lastmod>[^<]+</lastmod>', f'<lastmod>{page_updated()}</lastmod>', sitemap.read_text()))
 
 
 def tex(text):

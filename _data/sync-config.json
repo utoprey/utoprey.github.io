@@ -1,0 +1,29 @@
+{
+  "github": {
+    "username": "utoprey",
+    "exclude_repositories": [
+      "utoprey.github.io",
+      "neuroacquire",
+      "braincast-bench"
+    ],
+    "exclude_topics": [
+      "website-hide"
+    ],
+    "include_existing_repositories": []
+  },
+  "scholar": {
+    "author_id": "7VOBHhMAAAAJ",
+    "profile_names": [
+      "Ekaterina Antipushina",
+      "Katherine Antipushina",
+      "Екатерина Антипушина"
+    ],
+    "exclude_titles": [],
+    "exclude_title_fragments": [
+      "NeuroAcquire",
+      "BrainCast Bench"
+    ],
+    "exclude_citation_ids": [],
+    "include_existing_citation_ids": []
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "github_baseline_ids": [
+    600748879,
+    607128250,
+    607791732,
+    611885964,
+    647018857,
+    701813684,
+    849039866,
+    967053869,
+    967925796,
+    1010548469,
+    1010568222,
+    1051633024,
+    1146628481,
+    1174748960,
+    1255311508,
+    1287063097,
+    1349058863
+  ],
+  "projects": [],
+  "publications": [],
+  "sources": {
+    "github": {
+      "status": "ok",
+      "checked_at": "2026-10-04",
+      "last_success": "2026-10-04",
+      "records": 17,
+      "provider": "github-api"
+    },
+    "scholar": {
+      "status": "ok",
+      "checked_at": "2026-10-04",
+      "last_success": "2026-10-04",
+      "records": 11,
+      "provider": "public-profile"
+    }
+  },
+  "scholar_baseline_ids": [
+    "7VOBHhMAAAAJ:IjCSPb-OGe4C",
+    "7VOBHhMAAAAJ:LkGwnXOMwfcC",
+    "7VOBHhMAAAAJ:UeHWp8X0CEIC",
+    "7VOBHhMAAAAJ:W7OEmFMy1HYC",
+    "7VOBHhMAAAAJ:WF5omc3nYNoC",
+    "7VOBHhMAAAAJ:YsMSGLbcyi4C",
+    "7VOBHhMAAAAJ:_FxGoFyzp5QC",
+    "7VOBHhMAAAAJ:eQOLeE2rZwMC",
+    "7VOBHhMAAAAJ:u-x6o8ySG0sC",
+    "7VOBHhMAAAAJ:ufrVoPGSRksC",
+    "7VOBHhMAAAAJ:zYLM7Y9cAGgC"
+  ]
+}

@@ -1,5 +1,86 @@
 # Updating the public profile
 
+## Automatic discovery
+
+`sync-profile.mjs` is the server-side JavaScript collector. It runs in a bounded
+Docker job in GitHub Actions every day at **03:37 UTC / 12:37 Seoul**, on a push
+to `main`, or through **Actions → Update profile and deploy → Run workflow**.
+The same workflow renders EN/RU HTML, checks it, commits the snapshot, and deploys
+the public assets. GitHub Pages must use **GitHub Actions** as its publishing
+source; a bot commit alone does not trigger a legacy Pages build.
+
+```sh
+npm ci --ignore-scripts
+npm run sync:preview           # inspect sources without changing files
+npm run sync                   # update _data/auto-profile.json
+python _tools/build_profile.py
+python _tools/check_site.py
+```
+
+- `_data/profile.json` is the curated profile. The collector never writes it,
+  overwrites the biography/CV, changes chosen images, or publishes private repos.
+- `_data/auto-profile.json` stores source health, the initial GitHub baseline,
+  discovered projects and Scholar records. Both sources establish an initial
+  baseline: old unlisted papers are not unexpectedly republished on setup.
+  It contains public metadata only.
+  A daily source-health snapshot is committed even when no new work is found.
+- `_data/sync-config.json` controls source identities and exclusions. GitHub's
+  first successful run records the existing repositories as a baseline; only
+  subsequently discovered public original repositories are added. Forks, empty,
+  disabled and archived repositories are omitted. To import a specific old repo,
+  add its name to `github.include_existing_repositories`. Add a repo to
+  `exclude_repositories`, or set its GitHub topic to `website-hide`, to hide it.
+  Scholar uses stable citation IDs for the same baseline policy. To deliberately
+  backfill an existing record, add its ID to `scholar.include_existing_citation_ids`.
+- Existing curated projects and publications are deduplicated. All curated paper
+  titles, including `show_on_site: false`, prevent reimport; the four deliberately
+  hidden papers stay hidden. Posters do not become publication entries.
+- New GitHub projects appear below the curated projects. Scholar discoveries
+  appear as compact bibliographic records below the illustrated papers, in the
+  source's language. The script does not guess peer-review status, translate
+  scientific titles, or invent paper figures. Promote a record into the curated
+  profile when selecting its original illustration; the duplicate disappears.
+- A failed/blocked source keeps its last successful content while the other
+  source can update. A complete, successful GitHub snapshot removes automatic
+  entries whose repositories are no longer public/eligible. Scholar retains
+  older records outside the latest-page window. To hide a Scholar record, use
+  `exclude_titles` or `exclude_citation_ids`; these also filter cached records.
+- Both sources failing makes the workflow fail before publication. A single
+  source failure produces a visible Actions warning and summary. Malformed or
+  partial responses cannot wipe a previous snapshot. The public HTML is escaped;
+  API keys, raw scraped HTML, tooling and source-state files are not deployed.
+
+### Scholar access
+
+The default adapter reads the public profile's latest 100 records once per run.
+It does not use `cstart` pagination, solve CAPTCHAs, rotate proxies, or attempt to
+bypass a block. Google may block automated requests, including from Actions.
+Such a response is recorded as unavailable, never as an empty bibliography.
+
+For the supported API adapter, add an existing SerpApi key as repository secret
+**`SERPAPI_KEY`** in **Settings → Secrets and variables → Actions**. Do not place
+the key in a file, issue, chat message or workflow YAML. The next run automatically
+uses the Scholar Author API with the configured author ID and bounded pagination.
+No provider account or paid plan is created by this project. API quota and access
+remain dependent on the key's provider plan. The public profile adapter succeeded
+locally during setup on 4 October 2026; an earlier request was blocked. Consult
+the latest workflow summary for current status from the Actions runner.
+
+References: [GitHub public repositories API](https://docs.github.com/en/rest/repos/repos#list-repositories-for-a-user),
+[Scholar robots rules](https://scholar.google.com/robots.txt),
+[Scholar access guidance](https://scholar.google.com/intl/en/scholar/help.html),
+[SerpApi Scholar Author API](https://serpapi.com/google-scholar-author-api),
+[GitHub token and Pages builds](https://docs.github.com/en/actions/concepts/security/github_token).
+
+Validation: `npm test` covers discovery, pagination, identity checks, exclusions,
+duplicate records, secrets in errors and source outages. `python -m unittest
+discover -s _tools -p 'test_*.py'` exercises the real bilingual renderer with
+untrusted metadata and checks that the public CV remains byte-for-byte unchanged.
+`check_site.py` validates internal links, unique IDs, schema, verification and
+editorial publication visibility before every deployment.
+
+## Manual editorial updates
+
 Edit `_data/profile.json`, then run:
 
 ```sh

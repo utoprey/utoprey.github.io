@@ -653,6 +653,14 @@ body {
     color: var(--text-gray);
 }
 
+.auto-projects, .auto-publications { margin-top: 3rem; }
+.auto-intro { color: var(--text-gray); margin: 0.75rem 0 1.5rem; }
+.auto-publication { padding: 1.4rem 0; border-bottom: 1px solid var(--border-light); }
+.auto-publication .pub-title { margin-bottom: 0.5rem; }
+.auto-publication .pub-venue { margin-bottom: 0.75rem; }
+.auto-year { white-space: nowrap; }
+.auto-projects .project-title, .auto-publication .pub-title { overflow-wrap: anywhere; }
+
 .profile-updated {
     color: var(--text-gray);
     font-size: 0.85rem;

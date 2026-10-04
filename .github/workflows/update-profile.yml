@@ -1,0 +1,77 @@
+name: Update profile and deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '37 3 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  update-and-deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    container:
+      image: python:3.12-bookworm
+      options: --cpus 2 --memory 4g --label owner=e.antipushina --label project=utoprey-site
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Install dependencies inside the job container
+        run: |
+          npm ci --ignore-scripts
+          python -m pip install --disable-pip-version-check -r _tools/requirements.txt
+      - name: Check synchronization and rendering
+        run: |
+          npm test
+          python -m unittest discover -s _tools -p 'test_*.py'
+      - name: Discover new public projects and publications
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: npm run sync
+      - name: Render both languages and validate the public site
+        run: |
+          python _tools/build_profile.py
+          python _tools/check_site.py
+          git diff --check
+      - name: Save automatic content and source health
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _data/auto-profile.json index.html ru/index.html sitemap.xml
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update public profile sources and generated pages'
+            git push origin HEAD:main
+          fi
+      - name: Package only public assets
+        run: |
+          mkdir -p _site
+          cp -R index.html ru assets img research experience robots.txt sitemap.xml google39fa2f8eb4e57bc5.html _site/
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: _site
+      # GITHUB_TOKEN commits do not trigger legacy Pages builds. Deploy explicitly.
+      - name: Deploy updated pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

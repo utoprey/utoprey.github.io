@@ -1,1 +1,5 @@
 _cv/academic-draft.pdf
+node_modules/
+_site/
+_data/auto-profile.json.tmp
+__pycache__/
