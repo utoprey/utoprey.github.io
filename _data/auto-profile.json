@@ -24,14 +24,14 @@
   "sources": {
     "github": {
       "status": "ok",
-      "checked_at": "2026-10-04",
-      "last_success": "2026-10-04",
+      "checked_at": "2026-10-05",
+      "last_success": "2026-10-05",
       "records": 17,
       "provider": "github-api"
     },
     "scholar": {
       "status": "blocked",
-      "checked_at": "2026-10-04",
+      "checked_at": "2026-10-05",
       "last_success": "2026-10-04",
       "records": 11,
       "provider": "public-profile",
