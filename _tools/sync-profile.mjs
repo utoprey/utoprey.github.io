@@ -153,7 +153,7 @@ export function selectProjects(repositories, baselineIds, profile, config) {
 }
 
 export function selectPublications(previous, incoming, profile, config) {
-  const known = [...profile.publications, ...profile.posters].map(row => titleKey(row.title));
+  const known = [...profile.publications, ...profile.posters].flatMap(row => [row.title, ...(row.previous_titles ?? [])].map(titleKey));
   const excludedIds = new Set(config.exclude_citation_ids);
   const excludedTitles = new Set(config.exclude_titles.map(titleKey));
   const excludedFragments = config.exclude_title_fragments.map(titleKey);

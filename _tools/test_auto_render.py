@@ -20,6 +20,7 @@ class AutoRenderTest(unittest.TestCase):
                 dest.write_bytes((build.ROOT / rel).read_bytes())
             original_cv = (root / 'experience/EkaterinaAntipushinaCV.pdf').read_bytes()
             data = copy.deepcopy(build.DATA)
+            data['page_updated'] = '2026-10-01'
             auto = {'content_updated': '2026-10-04', 'projects': [{
                 'id': 'github-123', 'name': 'new-project', 'description': '<script>alert(1)</script>',
                 'url': 'https://github.com/utoprey/new-project', 'tags': ['Python', '<img src=x>'],

@@ -1132,6 +1132,10 @@ html { scroll-behavior: smooth; }
 .home-subtitle { font-size: clamp(1.45rem, 3vw, 1.9rem); font-weight: 500; margin-bottom: 1.25rem; }
 .home-summary { max-width: 720px; margin: 0 auto 1rem; font-size: 1.12rem; }
 .home-affiliation { color: var(--text-gray); }
+.home-awards { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.65rem; margin: 1.1rem auto 1.7rem; }
+.home-award { color: #775023; background: #fff4dd; border: 1px solid #ead9b5; border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.95rem; font-weight: 500; text-decoration: none; }
+.home-award:hover, .home-award:focus-visible { background: #f7e8c9; text-decoration: underline; }
+.pub-award { display: inline-block; margin: 0.55rem 0 0.85rem; border-left: 3px solid #b68d44; padding: 0.2rem 0.7rem; background: #fff7e8; color: #775023; font-size: 0.95rem; font-weight: 500; }
 .name-variant { font-size: .95rem; color: var(--text-gray); margin: -.5rem 0 1rem; }
 .profile-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .65rem 1.1rem; margin-top: 1.5rem; }
 .profile-links a, .section-content a { color: #785d76; text-underline-offset: 3px; }

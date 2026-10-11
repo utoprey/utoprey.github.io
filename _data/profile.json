@@ -2,6 +2,27 @@
   "updated": "2026-09-12",
   "timeline": [
     {
+      "id": "postech",
+      "title": {
+        "en": "Visiting Researcher",
+        "ru": "Исследовательская стажировка"
+      },
+      "company": {
+        "en": "Medical Information Processing Lab (MIP), POSTECH",
+        "ru": "Medical Information Processing Lab (MIP), POSTECH"
+      },
+      "period": {
+        "en": "September 2026 – present",
+        "ru": "Сентябрь 2026 — настоящее время"
+      },
+      "description": {
+        "en": "Research visit in Professor Won Hwa Kim’s lab, as part of the ML/CV team. Working on machine learning for biomedical data and neural signals, with methodological exchange and research collaboration.",
+        "ru": "Исследовательская стажировка в лаборатории профессора Won Hwa Kim, в команде ML/CV. Работаю над методами машинного обучения для биомедицинских данных и нейросигналов в сотрудничестве с принимающей группой."
+      },
+      "url": "https://mip.postech.ac.kr/members/",
+      "kind": "work"
+    },
+    {
       "id": "spatial",
       "title": {
         "en": "Machine Learning Engineer",
@@ -204,8 +225,8 @@
         "ru": "2026 · МРТ, УЗИ и ОКТ"
       },
       "description": {
-        "en": "Research on cardiac MRI segmentation and biomarker estimation, transfer-aware ultrasound biometry, and inverse OCT phantom generation. Three accepted contributions to MICCAI 2026 workshops and challenges.",
-        "ru": "Исследования сегментации МРТ сердца и оценки биомаркеров, УЗ-биометрии с учётом переноса моделей и обратной генерации ОКТ-фантомов. Три работы приняты в воркшопы и соревнования MICCAI 2026."
+        "en": "Research on cardiac MRI segmentation and biomarker estimation, transfer-aware ultrasound biometry, and inverse OCT phantom generation. Our teams placed 2nd in CMRSeg 2026 and 3rd in SynthOCT 2026 at MICCAI.",
+        "ru": "Исследования сегментации МРТ сердца и оценки биомаркеров, УЗ-биометрии с учётом переноса моделей и обратной генерации ОКТ-фантомов. Наши команды заняли 2-е место в CMRSeg 2026 и 3-е место в SynthOCT 2026 на MICCAI."
       },
       "tags": [
         "Segmentation",
@@ -347,15 +368,28 @@
   "publications": [
     {
       "id": "cardiac",
-      "title": "Geometry-Aware Multi-View Cardiac MRI Segmentation and Biomarker Estimation",
-      "authors": "Antipushina E., Sukhorukov D., Cherkasskaya E., Makarov I.",
-      "venue": "1st MICCAI Workshop on Medical World Models",
+      "title": "An Auditable Geometry Contract for Multi-View Cardiac Magnetic Resonance Imaging Analysis",
+      "authors": "Antipushina E., Sukhorukov D., Cherkasskaya E., Kalimullin R., Makarov I., Koush Y.",
+      "venue": "CMRSeg Challenge, MICCAI",
       "year": 2026,
       "status": "accepted",
-      "url": "https://openreview.net/forum?id=8fgjDHh6FH",
+      "url": "https://papers.miccai.org/miccai-2026-sat/CMRSeg_042.html",
       "image": "/img/publications/cardiac.webp?v=2026-10-01-figures",
       "image_width": 1100,
-      "image_height": 721
+      "image_height": 721,
+      "previous_titles": [
+        "Geometry-Aware Multi-View Cardiac MRI Segmentation and Biomarker Estimation"
+      ],
+      "links": [
+        {
+          "label": "OpenReview",
+          "url": "https://openreview.net/forum?id=8fgjDHh6FH"
+        }
+      ],
+      "award": {
+        "en": "2nd place · CMRSeg 2026",
+        "ru": "2-е место · CMRSeg 2026"
+      }
     },
     {
       "id": "tabs",
@@ -376,10 +410,24 @@
       "venue": "SynthOCT Challenge, MICCAI",
       "year": 2026,
       "status": "accepted",
-      "url": "https://openreview.net/forum?id=eT8xnrF58D",
+      "url": "https://papers.miccai.org/miccai-2026-sat/SynthOCT_001.html",
       "image": "/img/publications/oct.webp?v=2026-10-01-figures",
       "image_width": 1100,
-      "image_height": 480
+      "image_height": 480,
+      "links": [
+        {
+          "label": "OpenReview",
+          "url": "https://openreview.net/forum?id=eT8xnrF58D"
+        },
+        {
+          "label": "Certificate",
+          "url": "/research/awards/SynthOCT-2026-third-place.jpeg"
+        }
+      ],
+      "award": {
+        "en": "3rd place · SynthOCT 2026",
+        "ru": "3-е место · SynthOCT 2026"
+      }
     },
     {
       "id": "organoids",
@@ -614,6 +662,6 @@
       "image": "/img/ods_talk.png"
     }
   ],
-  "page_updated": "2026-10-04",
-  "assets_version": "2026-10-04-sync"
+  "page_updated": "2026-10-11",
+  "assets_version": "2026-10-11-awards"
 }

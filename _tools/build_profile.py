@@ -70,7 +70,7 @@ def fragment(html):
 
 def resource_link(url, label, lang):
     labels = {'Paper': 'Статья', 'Code': 'Код', 'Event': 'Анонс',
-              'Slides': 'Слайды', 'Recording': 'Запись'}
+              'Slides': 'Слайды', 'Recording': 'Запись', 'Certificate': 'Сертификат'}
     return a(url, labels.get(label, label) if lang == 'ru' else label, 'research-link')
 
 
@@ -96,6 +96,15 @@ def research_media(row, lang, url):
 
 
 def render_research(s, lang):
+    for old in s.select('.home-awards'):
+        old.decompose()
+    awarded = [row for row in DATA['publications'] if row.get('award') and row.get('show_on_site', True)]
+    if awarded:
+        label = 'Selected team awards' if lang == 'en' else 'Награды командных работ'
+        highlights = fragment(f'<div class="home-awards" aria-label="{label}">' + ''.join(
+            a(f'#paper-{row["id"]}', row['award'][lang], 'home-award') for row in awarded
+        ) + '</div>')
+        s.select_one('.home-affiliation').insert_after(highlights)
     papers = s.select_one('#research-papers')
     papers['class'] = ['research-section', 'research-list']
     papers.clear()
@@ -124,12 +133,14 @@ def render_research(s, lang):
             main_label = 'OpenReview' if 'openreview.net' in row['url'] else 'Paper'
             links = resource_link(row['url'], main_label, lang)
             links += ''.join(resource_link(l['url'], l['label'], lang) for l in row.get('links', []))
+            award = f'<p class="pub-award">{escape(row["award"][lang])}</p>' if row.get('award') else ''
             group.select_one('.publication-list').append(fragment(f'''<article class="publication-item research-row" id="paper-{row['id']}">
               {research_media(row, lang, row['url'])}
               <div class="research-row-content">
                 <h5 class="pub-title">{a(row['url'], row['title'])}</h5>
                 <p class="pub-authors">{authors}</p>
                 <p class="pub-venue"><cite>{escape(venue)}</cite>, {row['year']} {status}</p>
+                {award}
                 <div class="research-resources">{links}</div>
               </div></article>'''))
         papers.append(group)
@@ -160,6 +171,7 @@ def render_research(s, lang):
     schema_node = s.find('script', type='application/ld+json')
     schema = json.loads(schema_node.string)
     schema['dateModified'] = page_updated()
+    schema['mainEntity']['award'] = [row['award'][lang] for row in awarded]
     schema_node.string = '\n' + json.dumps(schema, ensure_ascii=False, indent=2) + '\n'
     # Keep punctuation next to inline author names and venue citations.
     for tag in s.select('.pub-authors, .pub-venue'):
@@ -176,7 +188,8 @@ def render_research(s, lang):
 
 
 def render_auto_publications(section, lang):
-    known = {title_key(row['title']) for row in DATA['publications'] + DATA['posters']}
+    known = {title_key(title) for row in DATA['publications'] + DATA['posters']
+             for title in [row['title'], *row.get('previous_titles', [])]}
     rows = [row for row in AUTO['publications'] if title_key(row['title']) not in known]
     if not rows:
         return
@@ -256,7 +269,7 @@ def render_pages():
         timeline.clear()
         for row in DATA['timeline']:
             timeline.append(fragment('<div class="timeline-item fade-in">' + ''.join(
-                f'<div class="{cls}">{escape(row[key][lang])}</div>'
+                f'<div class="{cls}">{a(row["url"], row[key][lang]) if key == "company" and row.get("url") else escape(row[key][lang])}</div>'
                 for key, cls in [('title', 'exp-title'), ('company', 'exp-company'),
                                  ('period', 'exp-duration'), ('description', 'exp-description')]
             ) + '</div>'))

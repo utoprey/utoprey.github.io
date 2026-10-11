@@ -83,6 +83,29 @@ editorial publication visibility before every deployment.
 
 ## Manual editorial updates
 
+### Awards and POSTECH visit, 11 October 2026
+
+- Added team results to the home page, the two relevant paper entries, the
+  medical-imaging project and the structured profile: **2nd place, CMRSeg 2026**
+  (KADS), and **3rd place, SynthOCT 2026**. CMRSeg's final position is confirmed
+  by the author and her challenge-summary team-information document. It is
+  distinct from a validation-set ranking or a best-paper award.
+- The original SynthOCT certificate, dated 1 October 2026 and listing Daniil
+  Sukhorukov, Ekaterina Antipushina, Yury Koush and Ilya Makarov, is available at
+  [`research/awards/SynthOCT-2026-third-place.jpeg`](../research/awards/SynthOCT-2026-third-place.jpeg).
+  No CMRSeg certificate is published because no corresponding file was located.
+- Updated the cardiac paper's title, author order and event from its
+  [official MICCAI record](https://papers.miccai.org/miccai-2026-sat/CMRSeg_042.html).
+  Both this paper and [SynthOCT](https://papers.miccai.org/miccai-2026-sat/SynthOCT_001.html)
+  now link to official open-access pages, retaining their OpenReview links.
+  The proceedings DOI was still pending, so the accepted status is retained.
+  `previous_titles` prevents the renamed cardiac paper from being imported twice.
+- Added the POSTECH MIP Lab research visit (September 2026–present) to the
+  introduction, biography, experience and contact section. Role and start month
+  follow the author's APR research-visit record; her membership in the ML/CV
+  team is listed on the [lab's public members page](https://mip.postech.ac.kr/members/).
+  Skoltech remains the PhD institution. The public PDF CV is unchanged.
+
 Edit `_data/profile.json`, then run:
 
 ```sh

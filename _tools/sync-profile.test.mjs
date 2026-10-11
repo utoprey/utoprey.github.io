@@ -7,7 +7,7 @@ const config = {
   scholar: { author_id: '7VOBHhMAAAAJ', profile_names: ['Ekaterina Antipushina'], exclude_titles: [], exclude_title_fragments: ['NeuroAcquire'], exclude_citation_ids: [] },
 };
 const profile = { projects: [{ id: 'curated', title: { en: 'Curated', ru: 'Проект' }, url: 'https://github.com/utoprey/curated' }],
-  publications: [{ id: 'hidden', title: 'A hidden publication', show_on_site: false }], posters: [{ title: 'A conference poster' }] };
+  publications: [{ id: 'hidden', title: 'A hidden publication', previous_titles: ['An earlier title'], show_on_site: false }], posters: [{ title: 'A conference poster' }] };
 const repo = (id, name, extra = {}) => ({ id, name, owner: { login: 'utoprey' }, private: false, visibility: 'public', fork: false, archived: false,
   disabled: false, size: 10, topics: [], created_at: '2026-10-04T00:00:00Z', language: 'Python', description: 'An original research project', ...extra });
 const article = (id, title, year = 2026) => ({ id: `scholar-${id}`, source_id: `7VOBHhMAAAAJ:${id}`, title, authors: 'E Antipushina', venue: 'A venue', year, url: 'https://scholar.google.com/citations?user=7VOBHhMAAAAJ' });
@@ -77,7 +77,7 @@ test('only new original public repositories are imported; curated and hidden pro
 
 test('hidden papers, existing posters, duplicates and excluded research cannot reappear', () => {
   const rows = [article('hidden', 'A hidden publication!'), article('poster', 'A conference poster'), article('new', 'A genuinely new paper'),
-    article('duplicate', 'A genuinely new paper.'), article('excluded', 'NeuroAcquire: new experiment')];
+    article('duplicate', 'A genuinely new paper.'), article('excluded', 'NeuroAcquire: new experiment'), article('renamed', 'An earlier title')];
   assert.deepEqual(selectPublications([], rows, profile, config.scholar).map(r => r.source_id), ['7VOBHhMAAAAJ:new']);
 });
 
