@@ -662,6 +662,68 @@
       "image": "/img/ods_talk.png"
     }
   ],
-  "page_updated": "2026-10-11",
-  "assets_version": "2026-10-11-awards"
+  "page_updated": "2026-10-16",
+  "assets_version": "2026-10-16-writing",
+  "writing": [
+    {
+      "id": "deepschool",
+      "title": {
+        "en": "Under the Hood · DeepSchool",
+        "ru": "Под капотом · DeepSchool"
+      },
+      "kind": {
+        "en": "Guest author · Community series",
+        "ru": "Авторская неделя в ML-сообществе"
+      },
+      "date_label": {
+        "en": "11–17 March 2026 · 5 posts · In Russian",
+        "ru": "11–17 марта 2026 · 5 постов"
+      },
+      "description": {
+        "en": "A week of posts about neurotechnology, moving from research to ML roles, interview preparation, and international research opportunities.",
+        "ru": "Серия постов о нейротехнологиях, переходе из науки в ML, подготовке к собеседованиям и международных исследовательских программах."
+      },
+      "url": "https://underthehood.deepschool.ru/author/32",
+      "image": "/img/writing/deepschool.jpg",
+      "image_width": 1280,
+      "image_height": 1280,
+      "posts": [
+        {
+          "title": {
+            "en": "Introduction: from biomedical engineering to ML",
+            "ru": "Знакомство: от биомедицины к ML"
+          },
+          "url": "https://t.me/deepschool_underthehood/514"
+        },
+        {
+          "title": {
+            "en": "Seeing without eyes",
+            "ru": "Как видеть без глаз"
+          },
+          "url": "https://t.me/deepschool_underthehood/515"
+        },
+        {
+          "title": {
+            "en": "ML interviews with a research background",
+            "ru": "Из науки — на ML-собеседование"
+          },
+          "url": "https://t.me/deepschool_underthehood/516"
+        },
+        {
+          "title": {
+            "en": "Resources for ML interview preparation",
+            "ru": "Подготовка к ML-собеседованиям"
+          },
+          "url": "https://t.me/deepschool_underthehood/517"
+        },
+        {
+          "title": {
+            "en": "Research programs abroad",
+            "ru": "Исследовательские программы за рубежом"
+          },
+          "url": "https://t.me/deepschool_underthehood/518"
+        }
+      ]
+    }
+  ]
 }

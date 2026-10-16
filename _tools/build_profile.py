@@ -166,6 +166,7 @@ def render_research(s, lang):
             <details class="talk-abstract"><summary>{summary}</summary><p>{escape(row['description'][lang])}</p></details>
           </div></article>'''))
     render_posters(s, lang)
+    render_writing(s, lang)
     s.select_one('.research-nav-btn[href="#research-talks"]').string = 'Talks' if lang == 'en' else 'Доклады'
     s.select_one('link[rel="stylesheet"][href^="/assets/site.css"]')['href'] = '/assets/site.css?v=' + DATA.get('assets_version', DATA['page_updated'])
     schema_node = s.find('script', type='application/ld+json')
@@ -185,6 +186,34 @@ def render_research(s, lang):
         tag.clear()
         tag.append(fragment(markup))
         tag.preserve_whitespace_tags = {'p'}
+
+
+def render_writing(s, lang):
+    for old in s.select('#research-writing, .research-nav-btn[href="#research-writing"]'):
+        old.decompose()
+    rows = DATA.get('writing', [])
+    if not rows:
+        return
+    heading = 'Writing & outreach' if lang == 'en' else 'Статьи и медиа'
+    nav_label = 'Writing' if lang == 'en' else 'Статьи и медиа'
+    s.select_one('.research-nav-pills').append(fragment(a('#research-writing', nav_label, 'research-nav-btn')))
+    section = fragment('<section id="research-writing" class="research-section research-list" '
+                       f'aria-labelledby="writing-heading"><h3 class="section-title" id="writing-heading">{heading}</h3></section>').section
+    for row in rows:
+        media = research_media({**row, 'title': row['title'][lang]}, lang, row['url'])
+        posts = ''.join(f'<li>{a(post["url"], post["title"][lang])}</li>' for post in row['posts'])
+        link_label = 'Read the series' if lang == 'en' else 'Читать всю серию'
+        section.append(fragment(f'''<article class="writing-item research-row" id="writing-{row['id']}">
+          {media}
+          <div class="research-row-content">
+            <p class="writing-kind">{escape(row['kind'][lang])}</p>
+            <h4 class="writing-title">{a(row['url'], row['title'][lang])}</h4>
+            <p class="writing-date">{escape(row['date_label'][lang])}</p>
+            <p class="writing-description">{escape(row['description'][lang])}</p>
+            <ul class="writing-posts">{posts}</ul>
+            <div class="research-resources">{a(row['url'], link_label, 'research-link')}</div>
+          </div></article>'''))
+    s.select_one('#research-talks').insert_after(section)
 
 
 def render_auto_publications(section, lang):

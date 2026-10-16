@@ -135,6 +135,20 @@ updates. Image dimensions are stored alongside each image URL.
 using XeLaTeX and Arial. It never replaces the public CV. Review/select the
 public PDF independently; do not automatically publish the generated draft.
 
+## DeepSchool author series, 16 October 2026
+
+- Added a bilingual Writing & outreach section for the author's
+  [DeepSchool Under the Hood series](https://underthehood.deepschool.ru/author/32),
+  dated 11–17 March 2026. It is a five-post community series, separate from
+  research papers and talks. Compact topic labels link to the five original
+  Telegram posts; the English page notes that the originals are in Russian.
+- `_data/profile.json` stores the series under `writing`; the normal builder
+  maintains its section and navigation link during scheduled updates.
+- `img/writing/deepschool.jpg` is the unmodified portrait from the
+  [author page](https://underthehood.deepschool.ru/uploads/1773762243608-x8z1in.jpeg),
+  also used in her introductory post. The biography and Person `sameAs` link to
+  the author profile. The selected public PDF CV is unchanged.
+
 ## Profile and poster update, 1 October 2026
 
 - Added explicit LLM and computer vision focus to both introductions, biographies,

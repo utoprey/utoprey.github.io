@@ -937,7 +937,7 @@ body {
 .cover-topic { font-size: 1.15rem; font-weight: 500; }
 .cover-year { font-size: .8rem; font-variant-numeric: tabular-nums; }
 
-.pub-title, .talk-title {
+.pub-title, .talk-title, .writing-title {
     font-size: 1.12rem;
     font-weight: 600;
     line-height: 1.45;
@@ -960,8 +960,11 @@ body {
 .research-link::after { content: ']'; }
 .research-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-.talk-kind { color: var(--research-accent); font-size: .78rem; font-weight: 600; margin-bottom: .25rem; }
-.talk-date { color: var(--text-gray); font-size: .9rem; margin-bottom: .35rem; }
+.talk-kind, .writing-kind { color: var(--research-accent); font-size: .78rem; font-weight: 600; margin-bottom: .25rem; }
+.talk-date, .writing-date { color: var(--text-gray); font-size: .9rem; margin-bottom: .35rem; }
+.writing-description { color: var(--text-gray); font-size: .95rem; margin: .65rem 0; }
+.writing-posts { padding-left: 1.2rem; margin: .65rem 0 1rem; font-size: .95rem; }
+.writing-posts li + li { margin-top: .3rem; }
 .talk-abstract { margin-top: .6rem; color: var(--text-gray); font-size: .9rem; }
 .talk-abstract summary { cursor: pointer; width: fit-content; }
 .talk-abstract summary:hover { color: var(--research-accent); }
@@ -977,7 +980,7 @@ body {
     .research-media { max-width: 280px; }
     .research-cover { max-width: 220px; aspect-ratio: 2 / 1; }
     .cover-topic { margin: .35rem 0; }
-    .pub-title, .talk-title { font-size: 1.08rem; }
+    .pub-title, .talk-title, .writing-title { font-size: 1.08rem; }
 }
 
 /* Contact section */
