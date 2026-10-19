@@ -24,15 +24,15 @@
   "sources": {
     "github": {
       "status": "ok",
-      "checked_at": "2026-10-18",
-      "last_success": "2026-10-18",
+      "checked_at": "2026-10-19",
+      "last_success": "2026-10-19",
       "records": 17,
       "provider": "github-api"
     },
     "scholar": {
       "status": "ok",
-      "checked_at": "2026-10-18",
-      "last_success": "2026-10-18",
+      "checked_at": "2026-10-19",
+      "last_success": "2026-10-19",
       "records": 12,
       "provider": "public-profile"
     }
