@@ -24,18 +24,17 @@
   "sources": {
     "github": {
       "status": "ok",
-      "checked_at": "2026-11-05",
-      "last_success": "2026-11-05",
+      "checked_at": "2026-11-06",
+      "last_success": "2026-11-06",
       "records": 17,
       "provider": "github-api"
     },
     "scholar": {
-      "status": "blocked",
-      "checked_at": "2026-11-05",
-      "last_success": "2026-11-02",
+      "status": "ok",
+      "checked_at": "2026-11-06",
+      "last_success": "2026-11-06",
       "records": 12,
-      "provider": "public-profile",
-      "message": "Source returned HTTP 403."
+      "provider": "public-profile"
     }
   },
   "scholar_baseline_ids": [
